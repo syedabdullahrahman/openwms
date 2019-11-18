@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+<title layout:title-pattern="$LAYOUT_TITLE / $CONTENT_TITLE">viruss</title>
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="description" content="" />
+<meta name="viewport" content="width=device-width" />
+
+
+<script type="text/javascript"
+	th:src="@{/webjars/jquery/jquery.min.js/}"></script>
+<script type="text/javascript"
+	th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
+<link rel="stylesheet" type="text/css"
+	th:href="@{/webjars/bootstrap/css/bootstrap.min.css}" />
+<link type="text/css" rel="stylesheet" th:href="@{/css/default.css}"
+	media="screen,projection" />
+</head>
+<body>
+	<div class="container">
+		<!--- NAV -->
+		<nav
+			class="navbar navbar-expand-sm bg-dark navbar-dark justify-content-end">
+			<a class="navbar-brand mr-auto mr-1" href="#">Home</a>
+
+			<button class="navbar-toggler" type="button" data-toggle="collapse"
+				data-target="#navbarSupportedContent">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse flex-grow-0"
+				id="navbarSupportedContent">
+				<ul class="navbar-nav text-right">
+					<li class="nav-item"><a class="nav-link" th:href="@{/}">home</a></li>
+					<li class="nav-item"><a class="nav-link" th:href="@{/user/exec}">@exec</a></li>
+					<li class="nav-item"><a class="nav-link" th:href="@{/admin/manage}">@manage</a></li>
+					<li class="nav-item"><a class="nav-link" th:href="@{/err}">#!error</a></li>
+					
+					
+					<li class="nav-item dropdown">
+      <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+       <span>lang</span>
+							<span th:switch="__${#locale}__"> 
+							<span th:case="'pl'">ipl</span> 
+							<span th:case="'en'">ien</span> 
+							<span th:case="'it'">iit</span>
+						</span>
+      </a>
+      <div class="dropdown-menu">
+        <a class="dropdown-item" href="#">pl</a>
+        <a class="dropdown-item" href="#">eng</a>
+        <a class="dropdown-item" href="#">ita</a>
+      </div>
+    </li>
+					
+		
+				</ul>
+			</div>
+		</nav>
+		<!-- /NAV -->
+		<!--- CONTENT -->
+		<div class="content margin-top-20" layout:fragment="content"></div>
+		<!-- /CONTENT -->
+		<!--- FOOTER -->
+		<!-- <div class="footer">viruss (c) 2019</div> -->
+		<!-- /FOOTER -->
+	</div>
+
+	<!--- SCRIPTS -->
+	<script type="text/javascript" layout:fragment="script"></script>
+	<!-- /SCRIPTS -->
+</body>
+</html>

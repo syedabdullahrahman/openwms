@@ -29,7 +29,7 @@ public class HomeController {
 
 		model.addAttribute("text", "$@*&#@*#(");
 
-		return "general/home";
+		return "home/index";
 	}
 
 	@RequestMapping("/err")
@@ -38,9 +38,13 @@ public class HomeController {
 
 	}
 
-	@RequestMapping("/exec")
+	@RequestMapping("/user/exec")
 	public String viewExecPage(Model model) {
-
-		return "general/exec";
+		return "home/exec";
+	}
+	
+	@RequestMapping("/admin/manage")
+	public String viewManagePage(Model model) {
+		return "home/manage";
 	}
 }
