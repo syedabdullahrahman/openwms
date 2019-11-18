@@ -1,3 +1,6 @@
+.nav-active-dark:active {
+	background: #555555;
+}
 
 .border-black {
 	border: 1px solid black;	
