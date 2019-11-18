@@ -31,6 +31,11 @@ public class HomeController {
 
 		return "home/index";
 	}
+	
+	@RequestMapping("/info")
+	public String viewInfoPage(Model model) {
+		return "home/info";
+	}
 
 	@RequestMapping("/user/exec")
 	public String viewExecPage(Model model) {

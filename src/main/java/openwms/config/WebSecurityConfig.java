@@ -12,10 +12,8 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 @Configuration
 @EnableWebSecurity
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter{
-
-	/**
-	 * define data source for users
-	 */
+	
+	// define data source for users
 	@Override
 	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
 		auth.inMemoryAuthentication()
@@ -24,20 +22,20 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter{
 		.withUser("dan").password(passwordEncoder().encode("dan123")).roles("USER");
 	}
 	
-	/**
-	 * authorize requests
-	 */
+	// authorize requests
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
-		http.authorizeRequests()
-		.anyRequest().authenticated()
+		http
+		.authorizeRequests()
+		
+		.antMatchers("/user/**").authenticated()
+		.antMatchers("/admin/**").hasRole("ADMIN")
+		.anyRequest().permitAll()
 		.and()
 		.httpBasic();
 	}
-	
-	/**
-	 * password encoder
-	 */
+
+	// password encoder
 	@Bean
 	PasswordEncoder passwordEncoder() {
 		return new BCryptPasswordEncoder();
