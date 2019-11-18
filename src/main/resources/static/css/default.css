@@ -10,6 +10,10 @@
 	border-bottom: 1px solid #E0E0E0;
 }
 
+i {
+	margin-right: 3px;
+}
+
 .margin-bottom-5{
 	margin-bottom: 5px;
 }
