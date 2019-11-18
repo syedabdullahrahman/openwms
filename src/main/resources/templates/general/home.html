@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	xmlns:th="http://www.thymeleaf.org" layout:decorate="~{layout/main}">
+
+<head>
+<title>home</title>
+</head>
+<body>
+	<div layout:fragment="content">
+		<h3 class="sub_title">_home</h3>
+		<p th:text="|> today is: ${dateDec} [ ${dateBin} / ${dateHex} ]|"> </p>
+		<p th:text="|> day of year: ${dayOfYearDec} [ ${dayOfYearBin} / ${dayOfYearHex} ]|"> </p>
+	</div>
+</body>
+</html>

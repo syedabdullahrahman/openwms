@@ -1,0 +1,61 @@
+@charset "UTF-8";
+
+/* #A5C6D9 */
+/* #2E5573 */
+/* #29262E */
+/* #5F3178 */
+/* #AB5DB7 */
+/* #E1CAE3 */
+
+body {
+	background-color: #29262E;
+	color: #A5C6D9;
+	font-family: "Lucida Console", Monaco, monospace;
+}
+
+.containerr {
+	margin: 0 auto;
+	width: 1300px;
+	background-color: #050505;
+}
+
+.top {
+	
+}
+
+.banner-title {
+	margin: 0;
+	padding: 0px 50px 0px 25px;
+	line-height: 55px;
+	font-size: 35px;
+	color: #C5E6F9;
+}
+
+.content {
+  	padding: 20px 25px;
+  	background-color: #2E5573;
+	min-height: 700px;
+}
+
+.footer {
+	padding: 5px 25px;
+	border-top: 1px dotted black;
+	font-size: 80%;	
+}
+
+.sub_title {
+	margin-bottom: 25px;
+}
+
+pre {
+	color: #A5C6D9;
+}
+
+a:link, a:visited, a:active{
+  color: #A5C6D9;
+  text-decoration: underline;
+}
+
+a:hover {
+  color: white;;
+}
