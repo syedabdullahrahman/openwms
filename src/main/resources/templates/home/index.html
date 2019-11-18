@@ -7,9 +7,16 @@
 </head>
 <body>
 	<div layout:fragment="content">
-		<h3 class="sub_title">_home</h3>
-		<p th:text="|> today is: ${dateDec} [ ${dateBin} / ${dateHex} ]|"> </p>
-		<p th:text="|> day of year: ${dayOfYearDec} [ ${dayOfYearBin} / ${dayOfYearHex} ]|"> </p>
+	   <div class="jumbotron">
+        <h1 class="display-7">Hello, Spring Boot Security!</h1>
+        <p class="lead">This is the home page of our web application. Anyone can access it, even if they have not signed in.</p>
+        <hr class="my-4">
+        <p>Using this example, you will become more familiar with Spring Security concepts:)</p>
+        <p class="lead">
+            <a class="btn btn-primary btn-lg" href="https://spring.io/projects/spring-security" role="button">Learn more about Spring Security</a>
+        </p>
+	</div>
+    
 	</div>
 </body>
 </html>

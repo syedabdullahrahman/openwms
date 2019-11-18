@@ -15,6 +15,7 @@
 	th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
 <link rel="stylesheet" type="text/css"
 	th:href="@{/webjars/bootstrap/css/bootstrap.min.css}" />
+<link th:href="@{~/fontawesome/css/all.css}" rel="stylesheet">
 <link type="text/css" rel="stylesheet" th:href="@{/css/default.css}"
 	media="screen,projection" />
 </head>
@@ -32,29 +33,24 @@
 			<div class="collapse navbar-collapse flex-grow-0"
 				id="navbarSupportedContent">
 				<ul class="navbar-nav text-right">
-					<li class="nav-item"><a class="nav-link" th:href="@{/}">home</a></li>
-					<li class="nav-item"><a class="nav-link" th:href="@{/user/exec}">@exec</a></li>
-					<li class="nav-item"><a class="nav-link" th:href="@{/admin/manage}">@manage</a></li>
+					<li class="nav-item"><a class="nav-link" th:href="@{/}"><i class="fa fa-home"></i>home</a></li>
+					<li class="nav-item"><a class="nav-link"
+						th:href="@{/user/exec}">@exec</a></li>
+					<li class="nav-item"><a class="nav-link"
+						th:href="@{/admin/manage}">@manage</a></li>
 					<li class="nav-item"><a class="nav-link" th:href="@{/err}">#!error</a></li>
-					
-					
-					<li class="nav-item dropdown">
-      <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
-       <span>lang</span>
-							<span th:switch="__${#locale}__"> 
-							<span th:case="'pl'">ipl</span> 
-							<span th:case="'en'">ien</span> 
-							<span th:case="'it'">iit</span>
+					<li class="nav-item dropdown"><a
+						class="nav-link dropdown-toggle" href="#" id="navbardrop"
+						data-toggle="dropdown"> <span>lang</span> <span
+							th:switch="__${#locale}__"> <span th:case="'pl'">ipl</span>
+								<span th:case="'en'">ien</span> <span th:case="'it'">iit</span>
 						</span>
-      </a>
-      <div class="dropdown-menu">
-        <a class="dropdown-item nav-active-dark" href="#">pl</a>
-        <a class="dropdown-item nav-active-dark" href="#">eng</a>
-        <a class="dropdown-item nav-active-dark" href="#">ita</a>
-      </div>
-    </li>
-					
-		
+					</a>
+						<div class="dropdown-menu">
+							<a class="dropdown-item" href="#">pl</a> <a
+								class="dropdown-item" href="#">eng</a> <a
+								class="dropdown-item" href="#">ita</a>
+						</div></li>
 				</ul>
 			</div>
 		</nav>

@@ -32,12 +32,6 @@ public class HomeController {
 		return "home/index";
 	}
 
-	@RequestMapping("/err")
-	public String viewErrorPage(Model model) throws Exception {
-		throw new Exception("Unknown (Fake) Exception");
-
-	}
-
 	@RequestMapping("/user/exec")
 	public String viewExecPage(Model model) {
 		return "home/exec";
@@ -47,4 +41,9 @@ public class HomeController {
 	public String viewManagePage(Model model) {
 		return "home/manage";
 	}
+	
+	@RequestMapping("/err")
+	public String viewErrorPage(Model model) throws Exception {
+		throw new Exception("Unknown (Fake) Exception");
+	}	
 }
