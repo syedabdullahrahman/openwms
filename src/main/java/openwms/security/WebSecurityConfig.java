@@ -1,4 +1,4 @@
-package openwms.config;
+package openwms.security;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -17,9 +17,13 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter{
 	@Override
 	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
 		auth.inMemoryAuthentication()
-		.withUser("admin").password(passwordEncoder().encode("admin123")).roles("ADMIN")
+		.withUser("admin")
+		.password(passwordEncoder().encode("admin123"))
+		.roles("ADMIN")
 		.and()
-		.withUser("dan").password(passwordEncoder().encode("dan123")).roles("USER");
+		.withUser("dan")
+		.password(passwordEncoder().encode("dan123"))
+		.roles("USER");
 	}
 	
 	// authorize requests
