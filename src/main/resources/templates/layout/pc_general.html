@@ -7,7 +7,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="description" content="" />
 <meta name="viewport" content="width=device-width" />
-
+<link rel="icon" type="image/png" th:href="@{/images/logo.png}" />
 
 <script type="text/javascript"
 	th:src="@{/webjars/jquery/jquery.min.js/}"></script>
@@ -15,17 +15,17 @@
 	th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
 <link rel="stylesheet" type="text/css"
 	th:href="@{/webjars/bootstrap/css/bootstrap.min.css}" />
-<link th:href="@{~/fontawesome/css/all.css}" rel="stylesheet">
+<link th:href="@{/fontawesome/css/all.css}" rel="stylesheet">
 <link type="text/css" rel="stylesheet" th:href="@{/css/default.css}"
 	media="screen,projection" />
 </head>
 <body>
-	<div class="container-fluid">
+	<div class="container">
 		<!--- NAV -->
 		<!-- https://getbootstrap.com/docs/4.0/examples/ -->
 		<nav
 			class="navbar navbar-expand-sm bg-dark navbar-dark justify-content-end">
-			<a class="navbar-brand mr-auto mr-1" href="#"><img class="nav-logo" th:src="@{~/images/logo.png}"/>Open WMS</a>
+			<a class="navbar-brand mr-auto mr-1" href="#"><img class="nav-logo" th:src="@{/images/logo.png}"/>Open WMS</a>
 
 			<button class="navbar-toggler" type="button" data-toggle="collapse"
 				data-target="#navbarSupportedContent">

@@ -1,9 +1,9 @@
-package openwms.repository.user;
+package wms.repository.user;
 
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
-import openwms.model.user.User;
+import wms.model.user.User;
 
 import java.util.Arrays;
 import java.util.List;

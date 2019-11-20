@@ -1,4 +1,4 @@
-package openwms.model.user;
+package wms.model.user;
 
 import java.util.ArrayList;
 import java.util.Arrays;

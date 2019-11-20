@@ -1,4 +1,4 @@
-package openwms.security;
+package wms.security;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -31,10 +31,11 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter{
 	protected void configure(HttpSecurity http) throws Exception {
 		http
 		.authorizeRequests()
-		
-		.antMatchers("/user/**").authenticated()
+		.anyRequest().permitAll() // dev
+		/*.antMatchers("/user/**").authenticated()
 		.antMatchers("/admin/**").hasRole("ADMIN")
 		.anyRequest().permitAll()
+		*/
 		.and()
 		.httpBasic();
 	}

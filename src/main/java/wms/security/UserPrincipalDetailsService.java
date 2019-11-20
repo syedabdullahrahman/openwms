@@ -1,12 +1,12 @@
-package openwms.security;
+package wms.security;
 
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
-import openwms.model.user.User;
-import openwms.repository.user.UserRepository;
+import wms.model.user.User;
+import wms.repository.user.UserRepository;
 
 
 @Service

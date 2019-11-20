@@ -1,10 +1,10 @@
-package openwms.security;
+package wms.security;
 
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
-import openwms.model.user.User;
+import wms.model.user.User;
 
 import java.util.ArrayList;
 import java.util.Collection;

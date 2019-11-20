@@ -1,4 +1,4 @@
-package openwms.controller.home;
+package wms.controller.home;
 
 import java.util.Calendar;
 

@@ -1,11 +1,11 @@
-package openwms.controller.home;
+package wms.controller.home;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import openwms.repository.user.UserRepository;
-import openwms.model.user.User;
+import wms.repository.user.UserRepository;
+import wms.model.user.User;
 
 import java.util.List;
 
