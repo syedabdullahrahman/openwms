@@ -1,22 +1,35 @@
 <!DOCTYPE html>
 <html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
-	xmlns:th="http://www.thymeleaf.org" layout:decorate="~{layout/pc_general}">
+	xmlns:th="http://www.thymeleaf.org"
+	layout:decorate="~{layout/pc_general}">
 
 <head>
 <title>home</title>
+<link type="text/css" rel="stylesheet" th:href="@{/css/error.css}"
+	media="screen,projection" />
 </head>
 <body>
 	<div layout:fragment="content">
-		<h3 class="sub_title">#!error </h3>
-		
+		<div id="notfound">
+			<div class="notfound">
+				<div class="notfound-404">
+					<h1 th:text="|#${status}!|" class="text-primary"></h1>
+				</div>
+				<h2><span th:text="|${error}|"></span></h2>
+				<p th:text="|${path} - ${message}|"></p>
+				<a class="btn btn-primary btn-lg" th:href="@{/}"><i class="fa fa-home margin-right-10"></i>home</a>
+			</div>
+		</div>
 
-        <p th:text="|path: ${path}|"></p>
-    <p th:text="|error: ${error} ${status}|"></p>
-    <p th:text="|message: ${message}|"></p>
-    <p th:text="|exception: ${exception}|"></p>
-    <pre th:text="${trace}"></pre>
-        
-		
+		<h3 class="sub_title">#!error</h3>
+		<p th:text="|path: ${path}|"></p>
+		<p th:text="|error: ${error} ${status}|"></p>
+		<p th:text="|message: ${message}|"></p>
+		<p th:text="|exception: ${exception}|"></p>
+		<pre th:text="${trace}" style="margin-bottom: 100px;"></pre>
+
+
 	</div>
 </body>
+<!-- This templates was made by Colorlib (https://colorlib.com) -->
 </html>

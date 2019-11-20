@@ -7,25 +7,31 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="description" content="" />
 <meta name="viewport" content="width=device-width" />
-<link rel="icon" type="image/png" th:href="@{/images/logo.png}" />
+<link rel="icon" type="image/png" th:href="@{/images/layout/logo.png}" />
 
 <script type="text/javascript"
 	th:src="@{/webjars/jquery/jquery.min.js/}"></script>
 <script type="text/javascript"
 	th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
+<script type="text/javascript" th:src="@{/js/popper.js/}"></script>
 <link rel="stylesheet" type="text/css"
 	th:href="@{/webjars/bootstrap/css/bootstrap.min.css}" />
-<link th:href="@{/fontawesome/css/all.css}" rel="stylesheet">
+<link th:href="@{/fontawesome/css/all.css}" rel="stylesheet"
+	media="screen,projection">
 <link type="text/css" rel="stylesheet" th:href="@{/css/default.css}"
 	media="screen,projection" />
+<link type="text/css" rel="stylesheet"
+	th:href="@{/css/sticky-footer-navbar.css}" media="screen,projection" />
+
 </head>
+
 <body>
-	<div class="container">
-		<!--- NAV -->
-		<!-- https://getbootstrap.com/docs/4.0/examples/ -->
+	<!--- NAV -->
+	<header>
 		<nav
 			class="navbar navbar-expand-sm bg-dark navbar-dark justify-content-end">
-			<a class="navbar-brand mr-auto mr-1" href="#"><img class="nav-logo" th:src="@{/images/logo.png}"/>Open WMS</a>
+			<a class="navbar-brand mr-auto mr-1" href="#"><img
+				class="nav-logo" th:src="@{/images/layout/logo.png}" />Open WMS</a>
 
 			<button class="navbar-toggler" type="button" data-toggle="collapse"
 				data-target="#navbarSupportedContent">
@@ -34,7 +40,10 @@
 			<div class="collapse navbar-collapse flex-grow-0"
 				id="navbarSupportedContent">
 				<ul class="navbar-nav text-right">
-					<li class="nav-item"><a class="nav-link" th:href="@{/}"><i class="fa fa-home"></i>home</a></li>
+					<li class="nav-item"><a class="nav-link" th:href="@{/}"><i
+							class="fa fa-home margin-right-5"></i>home</a></li>
+					<li class="nav-item"><a class="nav-link" th:href="@{/info}"><i
+							class="fa fa-info margin-right-5"></i>info</a></li>
 					<li class="nav-item"><a class="nav-link"
 						th:href="@{/user/exec}">@exec</a></li>
 					<li class="nav-item"><a class="nav-link"
@@ -48,21 +57,27 @@
 						</span>
 					</a>
 						<div class="dropdown-menu">
-							<a class="dropdown-item" href="#">pl</a> <a
-								class="dropdown-item" href="#">eng</a> <a
-								class="dropdown-item" href="#">ita</a>
+							<a class="dropdown-item" href="#">pl</a> <a class="dropdown-item"
+								href="#">eng</a> <a class="dropdown-item" href="#">ita</a>
 						</div></li>
 				</ul>
 			</div>
 		</nav>
-		<!-- /NAV -->
+	</header>
+	<!-- /NAV -->
+	
+	<main>
 		<!--- CONTENT -->
-		<div class="content margin-top-20" layout:fragment="content"></div>
+		<div layout:fragment="content"></div>
 		<!-- /CONTENT -->
-		<!--- FOOTER -->
-		<!-- <div class="footer">viruss (c) 2019</div> -->
-		<!-- /FOOTER -->
-	</div>
+	</main>
+	<!--- FOOTER -->
+	<footer class="footer">
+		<div class="container">
+			<span class="text-muted">Place sticky footer content here.</span>
+		</div>
+	</footer>
+	<!-- /FOOTER -->
 
 	<!--- SCRIPTS -->
 	<script type="text/javascript" layout:fragment="script"></script>

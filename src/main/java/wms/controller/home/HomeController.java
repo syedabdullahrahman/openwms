@@ -29,7 +29,7 @@ public class HomeController {
 
 		model.addAttribute("text", "$@*&#@*#(");
 
-		return "home/index";
+		return "home/home";
 	}
 	
 	@RequestMapping("/info")
