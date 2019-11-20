@@ -1,14 +1,24 @@
 <!DOCTYPE html>
 <html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
-	xmlns:th="http://www.thymeleaf.org" layout:decorate="~{layout/pc_general}">
+	xmlns:th="http://www.thymeleaf.org" 
+	xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
+	layout:decorate="~{layout/pc_general}">
 
 <head>
 <title>exec</title>
 </head>
 <body>
 	<div layout:fragment="content">
+		<div class="container">
 		<h3 class="sub_title">_exec for user</h3>
-		<span th:text="#{info.title}"></span>
+		
+		<p>all</p>
+		Hello, <span sec:authentication="name"></span>!
+		<p sec:authorize="isAuthenticated()">authenticated only</p>
+		<p sec:authorize="isAnonymous()">anonymous only</p>
+		<p sec:authorize="hasAnyRole('ROLE_ADMIN', 'ROLE_MANAGER')" >only ADMIN role</p>
+		<!-- for authenticated users only <p sec:authentication="principal.authorities"></p>  -->
+		</div>
 	</div>
 </body>
 </html>

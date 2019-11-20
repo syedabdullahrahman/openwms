@@ -5,6 +5,7 @@ import java.util.Calendar;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import wms.repository.user.UserRepository;
@@ -15,7 +16,7 @@ public class HomeController {
 	@Autowired
 	private UserRepository userRepository;
 	
-	@RequestMapping("/")
+	@GetMapping("/")
 	public String viewWelcomePage(Model model) {
 
 		Calendar cal = Calendar.getInstance();
@@ -38,23 +39,28 @@ public class HomeController {
 		return "home/home";
 	}
 	
-	@RequestMapping("/info")
+	@GetMapping("/login")
+	public String viewLoginPage() {
+		return "home/login";
+	}
+	
+	@GetMapping("/info")
 	public String viewInfoPage(Model model) {
 		return "home/info";
 	}
 
-	@RequestMapping("/user/exec")
+	@GetMapping("/user/exec")
 	public String viewExecPage(Model model) {
 		return "home/exec";
 	}
 	
-	@RequestMapping("/admin/manage")
+	@GetMapping("/admin/manage")
 	public String viewManagePage(Model model) {
 		System.out.println(userRepository.findByUsernameIgnoreCase("Manager"));
 		return "home/manage";
 	}
 	
-	@RequestMapping("/err")
+	@GetMapping("/err")
 	public String viewErrorPage(Model model) throws Exception {
 		throw new Exception("Unknown (Fake) Exception");
 	}	
