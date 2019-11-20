@@ -1,5 +1,6 @@
 package wms.security;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
@@ -11,19 +12,18 @@ import wms.repository.user.UserRepository;
 
 @Service
 public class UserPrincipalDetailsService implements UserDetailsService {
-    private UserRepository userRepository;
+    
+	@Autowired
+	private UserRepository userRepository;
 
-    public UserPrincipalDetailsService(UserRepository userRepository) {
-        this.userRepository = userRepository;
+    public UserPrincipalDetailsService() {
+
     }
-
 
     @Override
     public UserDetails loadUserByUsername(String s) throws UsernameNotFoundException {
-        User user = this.userRepository.findByUsername(s);
-       // UserPrincipal userPrincipal = new UserPrincipal(user);
-
-       // return userPrincipal;
-        return null;
+        User user = this.userRepository.findByUsernameIgnoreCase(s);
+        UserPrincipal userPrincipal = new UserPrincipal(user);
+        return userPrincipal;
     }
 }

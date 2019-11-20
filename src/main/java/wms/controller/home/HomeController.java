@@ -2,13 +2,19 @@ package wms.controller.home;
 
 import java.util.Calendar;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import wms.repository.user.UserRepository;
+
 @Controller
 public class HomeController {
 
+	@Autowired
+	private UserRepository userRepository;
+	
 	@RequestMapping("/")
 	public String viewWelcomePage(Model model) {
 
@@ -44,6 +50,7 @@ public class HomeController {
 	
 	@RequestMapping("/admin/manage")
 	public String viewManagePage(Model model) {
+		System.out.println(userRepository.findByUsernameIgnoreCase("Manager"));
 		return "home/manage";
 	}
 	
