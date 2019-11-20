@@ -52,13 +52,16 @@
 					<li class="nav-item dropdown"><a
 						class="nav-link dropdown-toggle" href="#" id="navbardrop"
 						data-toggle="dropdown"> <span>lang</span> <span
-							th:switch="__${#locale}__"> <span th:case="'pl'">ipl</span>
-								<span th:case="'en'">ien</span> <span th:case="'it'">iit</span>
+							th:switch="__${#locale}__"> 
+							<span th:case="'pl'">ipl</span>
+							<span th:case="'en'">ien</span> 
+							<span th:case="'it'">iit</span>
 						</span>
 					</a>
 						<div class="dropdown-menu">
-							<a class="dropdown-item" href="#">pl</a> <a class="dropdown-item"
-								href="#">eng</a> <a class="dropdown-item" href="#">ita</a>
+							<a class="dropdown-item" href="?lang=pl">pl</a> 
+							<a class="dropdown-item" href="?lang=en">en</a> 
+							<a class="dropdown-item" href="?lang=it">it</a>
 						</div></li>
 				</ul>
 			</div>
