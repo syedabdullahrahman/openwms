@@ -1,13 +1,11 @@
 package wms.security;
 
-import java.util.Arrays;
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.web.servlet.ServletListenerRegistrationBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
+import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
@@ -15,16 +13,12 @@ import org.springframework.security.core.session.SessionRegistry;
 import org.springframework.security.core.session.SessionRegistryImpl;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
-import org.springframework.security.web.authentication.session.CompositeSessionAuthenticationStrategy;
-import org.springframework.security.web.authentication.session.ConcurrentSessionControlAuthenticationStrategy;
-import org.springframework.security.web.authentication.session.RegisterSessionAuthenticationStrategy;
-import org.springframework.security.web.authentication.session.SessionAuthenticationStrategy;
-import org.springframework.security.web.authentication.session.SessionFixationProtectionStrategy;
 import org.springframework.security.web.session.HttpSessionEventPublisher;
 import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 
 @Configuration
 @EnableWebSecurity
+@EnableGlobalMethodSecurity( securedEnabled = true )
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter{
 	
 	@Autowired
@@ -38,7 +32,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter{
 	
 	@Override
 	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-		auth.userDetailsService(this.userPrincipalDetailsService).passwordEncoder(passwordEncoder());
+		auth.userDetailsService(userPrincipalDetailsService).passwordEncoder(passwordEncoder());
 	}
 	
 	// authorize requests
@@ -60,6 +54,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter{
 		.and()
 		.logout()
 		.logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
+		.deleteCookies("JSESSIONID")
+		.invalidateHttpSession(true)
 		 //.logoutSuccessUrl("/login")
 		
 		.and()
@@ -67,17 +63,16 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter{
 		.tokenValiditySeconds(2592000)
 		.key("owms")
 		.rememberMeParameter("remember-me")
-		
-		.and()
+		//.and()
 		//.exceptionHandling().accessDeniedPage("/noaccess")
 		
-		
+		.and()
 		.sessionManagement()
-		.maximumSessions(1)
-		.expiredUrl("/expired")
-		.maxSessionsPreventsLogin(true)
+        .maximumSessions(1)
+		.maxSessionsPreventsLogin(false)
+		.expiredUrl("/login?expired")
 		.sessionRegistry(sessionRegistry())
-		;
+		; 
 		
 	}
 
