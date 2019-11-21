@@ -38,10 +38,8 @@ html {
 							alt="System">
 						<div class="container">
 							<div class="carousel-caption text-left">
-								<h1 th:text="#{info.carousel.system}">Intuicyjny system magazynowy</h1>
-								<p th:text="#{info.carousel.system.description}">System zapewnia przestrzeganie reguł i dba o poprawność
-									procesów magazynowych w sposób przyjazny i przystępny dla
-									użytkownika.</p>
+								<h1 th:text="#{info.carousel.system}"></h1>
+								<p th:text="#{info.carousel.system.description}"></p>
 							</div>
 						</div>
 					</div>
@@ -50,10 +48,8 @@ html {
 							alt="Devices">
 						<div class="container">
 							<div class="carousel-caption ">
-								<h1 th:text="#{info.carousel.devices}">Dostęp na każdym urządzeniu</h1>
-								<p th:text="#{info.carousel.devices.description}">Open WMS to aplikacja webowa, dzięki temu dostęp jest
-									możliwy na komputerach stacjonarnych, przenośnych oraz
-									urządzeniach mobilnych - żadna instalacja nie jest wymagana!</p>
+								<h1 th:text="#{info.carousel.devices}"></h1>
+								<p th:text="#{info.carousel.devices.description}"></p>
 								<!--  <p><a class="btn btn-lg btn-primary" href="#" role="button">Browse gallery</a></p>  -->
 							</div>
 						</div>
@@ -63,10 +59,8 @@ html {
 							alt="Technology">
 						<div class="container">
 							<div class="carousel-caption text-left">
-								<h1 th:text="#{info.carousel.technology}">Nowoczesne technologie</h1>
-								<p th:text="#{info.carousel.technology.description}">Projekt wykorzystuje uznane na całym świecie technologie
-									open source, takie jak język Java, framework Spring Boot, baza
-									danych MySQL i wiele innych.</p>
+								<h1 th:text="#{info.carousel.technology}"></h1>
+								<p th:text="#{info.carousel.technology.description}"></p>
 							</div>
 						</div>
 					</div>
@@ -75,9 +69,8 @@ html {
 							alt="Datalogic">
 						<div class="container">
 							<div class="carousel-caption text-left">
-								<h1 th:text="#{info.carousel.interface}">Podwójny interfejs użytkownika</h1>
-								<p th:text="#{info.carousel.interface.description}">Aplikacja zapewnia możliwość pracy na standardowych
-									komputerach jak równiez profesjonalnych urządzeniach mobilnych.</p>
+								<h1 th:text="#{info.carousel.interface}"></h1>
+								<p th:text="#{info.carousel.interface.description}"></p>
 							</div>
 						</div>
 					</div>
@@ -90,10 +83,11 @@ html {
 					aria-hidden="true"></span> <span class="sr-only">Next</span>
 				</a>
 			</div>
+			<div id="features"></div>
 		</div>
 		<!-- CAROUSEL -->
-
 		<!-- /CONTAINER -->
+		
 		<!-- FEATURES -->
 		<div class="container marketing">
 			<div class="row" id="info-nav">
@@ -101,7 +95,7 @@ html {
 					<img class="rounded-circle" th:src="@{/images/info/feature_system.png}"
 						alt="system" width="140" height="140">
 					<h2 th:text="#{info.feature.system}">System</h2>
-					<p th:text="#{info.feature.system.description}"></p>
+					<p class="" th:text="#{info.feature.system.description}"></p>
 					<p>
 						<a class="btn btn-secondary" href="#system" role="button">
 						<span th:text="|#{general.read-more} &raquo;|">Read more &raquo;</span>
@@ -138,59 +132,53 @@ html {
 			<div id="system"></div>
 				<div class="col-md-7">
 					<h2 class="featurette-heading">
-						System. <span class="text-muted">It'll
-							blow your mind.</span>
+						<span th:text="#{info.feature.system}"></span>. 
+						<span th:text="#{info.feature.system.sub}" class="text-muted"></span>
 					</h2>
-					<p class="lead">Donec ullamcorper nulla non metus auctor
-						fringilla. Vestibulum id ligula porta felis euismod semper.
-						Praesent commodo cursus magna, vel scelerisque nisl consectetur.
-						Fusce dapibus, tellus ac cursus commodo.</p>
+					<p th:utext="#{info.feature.system.sub.desc}" class="lead"></p>
 				</div>
+				<!-- 
 				<div class="col-md-5">
 					<img class="featurette-image img-fluid mx-auto"
 						data-src="holder.js/500x500/auto" alt="Generic placeholder image">
 				</div>
+				 -->
 			</div>
-			<a href="#" class="float-right">Back to top</a>
+			<a href="#features" class="float-right"><span th:text="#{general.back-to-top}"></span></a>
 			<hr class="featurette-divider">
 
 			<div class="row featurette">
 			<div id="accessibility"></div>
 				<div class="col-md-7 order-md-2">
 					<h2 class="featurette-heading">
-						Access. <span class="text-muted">See for
-							yourself.</span>
+						<span th:text="#{info.feature.accessibility}"></span>. 
+						<span th:text="#{info.feature.accessibility.sub}" class="text-muted"></span>
 					</h2>
-					<p class="lead">Donec ullamcorper nulla non metus auctor
-						fringilla. Vestibulum id ligula porta felis euismod semper.
-						Praesent commodo cursus magna, vel scelerisque nisl consectetur.
-						Fusce dapibus, tellus ac cursus commodo.</p>
+					<p th:utext="#{info.feature.accessibility.sub.desc}" class="lead"></p>
 				</div>
 				<div class="col-md-5 order-md-1">
 					<img class="featurette-image img-fluid mx-auto"
 						data-src="holder.js/500x500/auto" alt="Generic placeholder image">
 				</div>
 			</div>
-			<a href="#" class="float-right">Back to top</a>	
+			<a href="#features" class="float-right"><span th:text="#{general.back-to-top}"></span></a>	
 			<hr class="featurette-divider">
 			
 			<div class="row featurette">
 			<div id="technology"></div>
 				<div class="col-md-7">
 					<h2 class="featurette-heading">
-						Technology. <span class="text-muted">Checkmate.</span>
+						<span th:text="#{info.feature.technology}"></span>. 
+						<span th:text="#{info.feature.technology.sub}" class="text-muted"></span>
 					</h2>
-					<p class="lead">Donec ullamcorper nulla non metus auctor
-						fringilla. Vestibulum id ligula porta felis euismod semper.
-						Praesent commodo cursus magna, vel scelerisque nisl consectetur.
-						Fusce dapibus, tellus ac cursus commodo.</p>
+					<p th:utext="#{info.feature.technology.sub.desc}" class="lead"></p>
 				</div>
 				<div class="col-md-5">
 					<img class="featurette-image img-fluid mx-auto"
 						data-src="holder.js/500x500/auto" alt="Generic placeholder image">
 				</div>
 			</div>
-			<a href="#" class="float-right">Back to top</a>	
+			<a href="#features" class="float-right"><span th:text="#{general.back-to-top}"></span></a>	
 			<hr class="featurette-divider">
 			<!-- /DESCRIPTIONS -->
 			
