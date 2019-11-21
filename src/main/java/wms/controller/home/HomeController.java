@@ -44,6 +44,11 @@ public class HomeController {
 		return "home/login";
 	}
 	
+	@GetMapping("/noaccess")
+	public String viewNoAccessPage() {
+		return "home/noaccess";
+	}
+	
 	@GetMapping("/info")
 	public String viewInfoPage(Model model) {
 		return "home/info";
