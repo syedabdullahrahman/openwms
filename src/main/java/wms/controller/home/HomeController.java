@@ -6,7 +6,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
 
 import wms.repository.user.UserRepository;
 
@@ -39,6 +38,11 @@ public class HomeController {
 		return "home/home";
 	}
 	
+	@GetMapping("/info")
+	public String viewInfoPage() {
+		return "home/info";
+	}
+	
 	@GetMapping("/login")
 	public String viewLoginPage() {
 		return "home/login";
@@ -48,12 +52,9 @@ public class HomeController {
 	public String viewNoAccessPage() {
 		return "home/noaccess";
 	}
-	
-	@GetMapping("/info")
-	public String viewInfoPage(Model model) {
-		return "home/info";
-	}
 
+	
+	
 	@GetMapping("/user/exec")
 	public String viewExecPage(Model model) {
 		return "home/exec";

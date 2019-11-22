@@ -5,19 +5,12 @@
 	layout:decorate="~{layout/pc_general}">
 
 <head>
-<title>index</title>
-<link type="text/css" rel="stylesheet"
-	th:href="@{/css/info_carousel.css}" media="screen,projection" />
-
-<script type="text/javascript">
-
-</script>
-<style>
-html {
-	scroll-behavior: smooth;
-}
-</style>
+	<link type="text/css" rel="stylesheet"
+		th:href="@{/css/info_carousel.css}" media="screen,projection" />
+	
+	<title th:text="#{site.title.info}"></title>
 </head>
+
 <body>
 	<div layout:fragment="content">
 
@@ -38,6 +31,7 @@ html {
 							<div class="carousel-caption text-left">
 								<h1 th:text="#{info.carousel.system}"></h1>
 								<p th:text="#{info.carousel.system.description}"></p>
+								<p><a class="btn btn-lg btn-secondary" href="#system" role="button"><span th:text="|#{general.read-more} &raquo;|"></span></a></p>
 							</div>
 						</div>
 					</div>
@@ -48,7 +42,7 @@ html {
 							<div class="carousel-caption ">
 								<h1 th:text="#{info.carousel.devices}"></h1>
 								<p th:text="#{info.carousel.devices.description}"></p>
-								<!--  <p><a class="btn btn-lg btn-primary" href="#" role="button">Browse gallery</a></p>  -->
+								<p><a class="btn btn-lg btn-warning" href="#accessibility" role="button"><span th:text="|#{general.read-more} &raquo;|"></span></a></p>
 							</div>
 						</div>
 					</div>
@@ -59,6 +53,7 @@ html {
 							<div class="carousel-caption text-left">
 								<h1 th:text="#{info.carousel.technology}"></h1>
 								<p th:text="#{info.carousel.technology.description}"></p>
+								<p><a class="btn btn-lg btn-success" href="#technology" role="button"><span th:text="|#{general.read-more} &raquo;|"></span></a></p>
 							</div>
 						</div>
 					</div>
@@ -69,6 +64,7 @@ html {
 							<div class="carousel-caption text-left">
 								<h1 th:text="#{info.carousel.interface}"></h1>
 								<p th:text="#{info.carousel.interface.description}"></p>
+								<p><a class="btn btn-lg btn-primary" href="#accessibility" role="button"><span th:text="|#{general.read-more} &raquo;|"></span></a></p>
 							</div>
 						</div>
 					</div>
@@ -88,12 +84,12 @@ html {
 		
 		<!-- FEATURES -->
 		<div class="container marketing">
-			<div class="row" id="info-nav">
+			<div class="row">
 				<div class="col-lg-4">
 					<img class="rounded-circle" th:src="@{/images/info/feature_system.png}"
 						alt="system" width="140" height="140">
 					<h2 th:text="#{info.feature.system}">System</h2>
-					<p class="" th:text="#{info.feature.system.description}"></p>
+					<p th:text="#{info.feature.system.description}"></p>
 					<p>
 						<a class="btn btn-secondary" href="#system" role="button">
 						<span th:text="|#{general.read-more} &raquo;|">Read more &raquo;</span>
@@ -101,7 +97,7 @@ html {
 					</p>
 				</div>
 				<div class="col-lg-4">
-					<img class="rounded-circle" th:src="@{/images/info/feature_http.png}"
+					<img class="rounded-circle" th:src="@{/images/info/carousel_devices.png}"
 						alt="address" width="140" height="140">
 					<h2 th:text="#{info.feature.accessibility}">System</h2>
 					<p th:text="#{info.feature.accessibility.description}"></p>
@@ -112,7 +108,7 @@ html {
 					</p>
 				</div>
 				<div class="col-lg-4">
-					<img class="rounded-circle" th:src="@{/images/info/feature_tech.png}"
+					<img class="rounded-circle" th:src="@{/images/info/feature_tech_2.png}"
 						alt="technology" width="140" height="140">
 					<h2 th:text="#{info.feature.technology}">System</h2>
 					<p th:text="#{info.feature.technology.description}"></p>
@@ -125,28 +121,28 @@ html {
 			<!-- FEATURES -->
 			<!-- DESCRIPTIONS -->
 			<hr class="featurette-divider">
-
-			<div class="row featurette">
 			<div id="system"></div>
-				<div class="col-md-7">
+			<div class="row featurette">
+				<div class="col-md-7 ">
 					<h2 class="featurette-heading">
 						<span th:text="#{info.feature.system}"></span>. 
 						<span th:text="#{info.feature.system.sub}" class="text-muted"></span>
 					</h2>
 					<p th:utext="#{info.feature.system.sub.desc}" class="lead"></p>
 				</div>
-				<!-- 
-				<div class="col-md-5">
-					<img class="featurette-image img-fluid mx-auto"
-						data-src="holder.js/500x500/auto" alt="Generic placeholder image">
+				
+				<div class="col-md-5" style="margin: auto;">
+					<img class="featurette-image img-fluid mx-auto align-middle"
+						th:src="@{/images/info/description_wms.png}" alt="System">
 				</div>
-				 -->
+				 
 			</div>
 			<a href="#features" class="float-right"><span th:text="#{general.back-to-top}"></span></a>
+			
+			
 			<hr class="featurette-divider">
-
-			<div class="row featurette">
 			<div id="accessibility"></div>
+			<div class="row featurette">
 				<div class="col-md-7 order-md-2">
 					<h2 class="featurette-heading">
 						<span th:text="#{info.feature.accessibility}"></span>. 
@@ -154,16 +150,17 @@ html {
 					</h2>
 					<p th:utext="#{info.feature.accessibility.sub.desc}" class="lead"></p>
 				</div>
-				<div class="col-md-5 order-md-1">
+				<div class="col-md-5 order-md-1" style="margin: auto;">
 					<img class="featurette-image img-fluid mx-auto"
-						data-src="holder.js/500x500/auto" alt="Generic placeholder image">
+						th:src="@{/images/info/description_devices.png}" alt="Accessibility">
 				</div>
 			</div>
 			<a href="#features" class="float-right"><span th:text="#{general.back-to-top}"></span></a>	
-			<hr class="featurette-divider">
 			
-			<div class="row featurette">
+			
+			<hr class="featurette-divider">
 			<div id="technology"></div>
+			<div class="row featurette">
 				<div class="col-md-7">
 					<h2 class="featurette-heading">
 						<span th:text="#{info.feature.technology}"></span>. 
@@ -171,15 +168,14 @@ html {
 					</h2>
 					<p th:utext="#{info.feature.technology.sub.desc}" class="lead"></p>
 				</div>
-				<div class="col-md-5">
+				<div class="col-md-5" style="margin: auto;">
 					<img class="featurette-image img-fluid mx-auto"
-						data-src="holder.js/500x500/auto" alt="Generic placeholder image">
+						th:src="@{/images/info/description_tech_ai.png}" alt="Technology">
 				</div>
 			</div>
 			<a href="#features" class="float-right"><span th:text="#{general.back-to-top}"></span></a>	
 			<hr class="featurette-divider">
 			<!-- /DESCRIPTIONS -->
-			
 		</div>
 		
 		<!-- /CONTAINER -->

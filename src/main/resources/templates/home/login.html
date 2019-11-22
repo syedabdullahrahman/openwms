@@ -4,7 +4,7 @@
 	xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
 	layout:decorate="~{layout/pc_general}">
 <head>
-<title>login</title>
+<title th:text="#{site.title.login}"></title>
 <link type="text/css" rel="stylesheet" th:href="@{/css/login.css}"
 	media="screen,projection" />
 </head>
@@ -14,33 +14,40 @@
 			<form class="form-signin" th:action="@{/login}" method="post">
 
 				<h1 class="h3 mb-3 font-weight-normal">
-					<i class="fa fa-key"></i> Please sign in
+					<i class="fa fa-key"></i> <span th:text="#{login.sign-in.title}"></span>
 				</h1>
 
-				<!-- Thymeleaf + Spring Security error display -->
 				<div th:if="${param.error}" class="alert alert-danger">
-					Invalid username and password.</div>
+					<span th:text="#{login.bad-login-or-password}"></span>
+				</div>
+					
+				<div th:if="${param.expired}" class="alert alert-danger">
+					<span th:text="#{login.session-expired}"></span>
+				</div>
 
-				<div th:if="${param.logout}" class="alert alert-success">You
-					have been logged out.</div>
+				<div th:if="${param.logout}" class="alert alert-success">
+					<span th:text="#{login.logout-success}"></span>
+				</div>
+									
 					
-				<label for="username" class="sr-only">Username</label> 
+				<label for="username" class="sr-only"><span th:text="#{general.username}"></span></label> 
 				<input type="text" id="username" name="username" class="form-control"
-					placeholder="Username"> 
+					th:placeholder="#{general.username}"> 
 					
-				<label for="password" class="sr-only">Password</label> 
+				<label for="password" class="sr-only"><span th:text="#{general.password}"></span></label> 
 				<input type="password" id="password" name="password" class="form-control"
-					placeholder="Password">
+					th:placeholder="#{general.password}">
 
 				<div class="checkbox mb-3">
 					<label> 
 					<input type="checkbox" id="remember-me" name ="remember-me">
-						Remember me
+						<span th:text="#{login.remember-me}"></span>
 					</label>
 				</div>
 
-				<button class="btn btn-lg btn-primary btn-block" type="submit">Sign
-					in</button>
+				<button class="btn btn-lg btn-primary btn-block" type="submit">
+					<span th:text="#{login.sign-in}"></span>
+				</button>
 			</form>
 		</div>
 	</div>

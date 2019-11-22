@@ -4,7 +4,8 @@
 	layout:decorate="~{layout/pc_general}">
 
 <head>
-<title>home</title>
+<title th:text="|${status} / ${error}|"></title>
+
 <link type="text/css" rel="stylesheet" th:href="@{/css/error.css}"
 	media="screen,projection" />
 </head>
