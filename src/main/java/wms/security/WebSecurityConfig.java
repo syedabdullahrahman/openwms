@@ -1,5 +1,7 @@
 package wms.security;
 
+import javax.sql.DataSource;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.web.servlet.ServletListenerRegistrationBean;
 import org.springframework.context.annotation.Bean;
@@ -13,6 +15,8 @@ import org.springframework.security.core.session.SessionRegistry;
 import org.springframework.security.core.session.SessionRegistryImpl;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.security.web.authentication.rememberme.JdbcTokenRepositoryImpl;
+import org.springframework.security.web.authentication.rememberme.PersistentTokenRepository;
 import org.springframework.security.web.session.HttpSessionEventPublisher;
 import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 
@@ -24,12 +28,15 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter{
 	@Autowired
 	UserPrincipalDetailsService userPrincipalDetailsService;
 	
+	@Autowired
+	DataSource dataSource;
+	
 	@Bean
 	PasswordEncoder passwordEncoder() {
 		return new BCryptPasswordEncoder();
 	}
 	 
-	
+	// authentication management
 	@Override
 	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
 		auth.userDetailsService(userPrincipalDetailsService).passwordEncoder(passwordEncoder());
@@ -56,15 +63,14 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter{
 		.logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
 		.deleteCookies("JSESSIONID")
 		.invalidateHttpSession(true)
-		 //.logoutSuccessUrl("/login")
 		
 		.and()
-		.rememberMe()
+		.rememberMe().tokenRepository(persistentTokenRepository())
 		.tokenValiditySeconds(2592000)
 		.key("owms")
 		.rememberMeParameter("remember-me")
-		//.and()
-		//.exceptionHandling().accessDeniedPage("/noaccess")
+		.and()
+		.exceptionHandling().accessDeniedPage("/noaccess")
 		
 		.and()
 		.sessionManagement()
@@ -77,31 +83,26 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter{
 	}
 
 	
-    // Register HttpSessionEventPublisher
-	 @Bean
-	    public ServletListenerRegistrationBean<HttpSessionEventPublisher> httpSessionEventPublisher() {
-	        return new ServletListenerRegistrationBean<>(new HttpSessionEventPublisher());
-	    }
-    
+	// session management
+	@Bean
+	public ServletListenerRegistrationBean<HttpSessionEventPublisher> httpSessionEventPublisher() {
+		return new ServletListenerRegistrationBean<>(new HttpSessionEventPublisher());
+	}
+	
+    // session management
     @Bean
     public SessionRegistry sessionRegistry() {
         SessionRegistry sessionRegistry = new SessionRegistryImpl();
         return sessionRegistry;
     }
+    
+    // remember me persistent token
+	@Bean
+	public PersistentTokenRepository persistentTokenRepository() {
+		JdbcTokenRepositoryImpl db = new JdbcTokenRepositoryImpl();
+		db.setDataSource(dataSource);
+		return db;
+	}
+	
 
 }
-
-
-
-/*
-
-auth.authenticationProvider(authenticationProvider());
- * 
-@Bean
-DaoAuthenticationProvider authenticationProvider() {
-	DaoAuthenticationProvider daoAuthenticationProvider = new DaoAuthenticationProvider();
-	daoAuthenticationProvider.setPasswordEncoder(passwordEncoder());
-	daoAuthenticationProvider.setUserDetailsService(this.userPrincipalDetailsService);
-	return daoAuthenticationProvider;
-}
-*/

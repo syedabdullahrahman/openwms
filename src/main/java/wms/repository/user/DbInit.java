@@ -23,6 +23,7 @@ public class DbInit implements CommandLineRunner {
 
     @Override
     public void run(String... args) {
+        /*
         // Delete all
         this.userRepository.deleteAll();
 
@@ -35,5 +36,6 @@ public class DbInit implements CommandLineRunner {
 
         // Save to db
         this.userRepository.saveAll(users);
+        */
     }
 }
