@@ -53,7 +53,6 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter{
 		.and()
 		.formLogin()
 		.loginProcessingUrl("/login")
-		
 		.loginPage("/login")
 		.usernameParameter("username")
 		.passwordParameter("password")
@@ -80,9 +79,10 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter{
 		.sessionRegistry(sessionRegistry())
 		; 
 		
+		
+		
 	}
 
-	
 	// session management
 	@Bean
 	public ServletListenerRegistrationBean<HttpSessionEventPublisher> httpSessionEventPublisher() {

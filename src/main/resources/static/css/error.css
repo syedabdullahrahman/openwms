@@ -9,17 +9,18 @@ body {
 }
 
 #notfound {
-  position: relative;
-  height: 100vh;
+ position: relative;
+ height: 99vh;
+ min-height: 500px;
 }
 
-#notfound .notfound {
+.notfound {
   position: absolute;
   left: 50%;
-  top: 50%;
-  -webkit-transform: translate(-50%, -80%);
-      -ms-transform: translate(-50%, -80%);
-          transform: translate(-50%, -80%);
+  top:  25%;
+  -webkit-transform: translate(-50%, -25%);
+      -ms-transform: translate(-50%, -25%);
+          transform: translate(-50%, -25%);
 }
 
 .notfound {
@@ -28,13 +29,13 @@ body {
   text-align: center;
 }
 
-.notfound .notfound-404 {
+.notfound-404 {
   height: 280px;
   position: relative;
   z-index: -1;
 }
 
-.notfound .notfound-404 h1 {
+.notfound-404 h1 {
   font-family: "Arial Black", Gadget, sans-serif, sans-serif;
   font-size: 190px;
   margin: 0px;
@@ -44,6 +45,7 @@ body {
   -webkit-transform: translateX(-50%);
       -ms-transform: translateX(-50%);
           transform: translateX(-50%);
+  
   /*
   background: url('../images/err_bg.jpg') no-repeat;
   -webkit-background-clip: text;
@@ -59,7 +61,7 @@ body {
   font-size: 24px;
   font-weight: 700;
   text-transform: uppercase;
-  margin-top: 0;
+  
 }
 
 .notfound p {

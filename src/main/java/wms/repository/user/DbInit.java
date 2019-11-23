@@ -23,19 +23,19 @@ public class DbInit implements CommandLineRunner {
 
     @Override
     public void run(String... args) {
-        /*
+        
         // Delete all
         this.userRepository.deleteAll();
 
         // Create users
         User dan = new User("user",passwordEncoder.encode("user"),"USER","");
-        User admin = new User("admin",passwordEncoder.encode("admin"),"ADMIN","ACCESS_TEST1,ACCESS_TEST2");
+        User admin = new User("admin",passwordEncoder.encode("admin"),"ADMIN","ACCESS_TEST1;ACCESS_TEST2");
         User manager = new User("manager",passwordEncoder.encode("manager"),"MANAGER","ACCESS_TEST1");
 
         List<User> users = Arrays.asList(dan,admin,manager);
 
         // Save to db
         this.userRepository.saveAll(users);
-        */
+        
     }
 }
