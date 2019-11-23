@@ -45,21 +45,19 @@ public class HomeController {
 	
 	@GetMapping("/login")
 	public String viewLoginPage() {
-		return "home/login";
+		return "login";
 	}
 	
 	@GetMapping("/noaccess")
 	public String viewNoAccessPage() {
-		// TODO based on error page 
-		// error page small over menu...
-		return "home/noaccess";
+		return "noaccess";
 	}
 
 	
-	
-	@GetMapping("/user/exec")
-	public String viewExecPage(Model model) {
-		return "home/exec";
+	// -------------------------------------- tests to clear ------------------------------------------
+	@GetMapping("/err")
+	public String viewFakeError() throws Exception {
+		throw new Exception("Fake Exception");
 	}
 	
 	@GetMapping("/admin/manage")
@@ -67,9 +65,5 @@ public class HomeController {
 		System.out.println(userRepository.findByUsernameIgnoreCase("Manager"));
 		return "home/manage";
 	}
-	
-	@GetMapping("/err")
-	public String viewErrorPage(Model model) throws Exception {
-		throw new Exception("Unknown (Fake) Exception");
-	}	
+		
 }

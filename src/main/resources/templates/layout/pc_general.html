@@ -1,30 +1,23 @@
 <!DOCTYPE html>
 <html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
 	xmlns:th="http://www.thymeleaf.org"
-	xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
-	>
+	xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head>
-<title layout:title-pattern="$LAYOUT_TITLE / $CONTENT_TITLE">WMS</title>
 <meta charset="utf-8" />
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="description" content="" />
 <meta name="viewport" content="width=device-width" />
+
+<script type="text/javascript" th:src="@{/js/popper.js/}"></script>
+<script type="text/javascript" th:src="@{/webjars/jquery/jquery.min.js/}"></script>
+<script type="text/javascript" th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
+<link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}" />
+<link rel="stylesheet" type="text/css" th:href="@{/fontawesome/css/all.css}" media="screen,projection">
+<link rel="stylesheet" type="text/css" th:href="@{/css/main_default.css}" media="screen,projection" />
+<link rel="stylesheet" type="text/css" th:href="@{/css/main_footer_navbar.css}" media="screen,projection" />
 <link rel="icon" type="image/png" th:href="@{/images/layout/logo.png}" />
 
-<script type="text/javascript"
-	th:src="@{/webjars/jquery/jquery.min.js/}"></script>
-<script type="text/javascript"
-	th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
-<script type="text/javascript" th:src="@{/js/popper.js/}"></script>
-<link rel="stylesheet" type="text/css"
-	th:href="@{/webjars/bootstrap/css/bootstrap.min.css}" />
-<link th:href="@{/fontawesome/css/all.css}" rel="stylesheet"
-	media="screen,projection">
-<link type="text/css" rel="stylesheet" th:href="@{/css/default.css}"
-	media="screen,projection" />
-<link type="text/css" rel="stylesheet"
-	th:href="@{/css/sticky-footer-navbar.css}" media="screen,projection" />
-
+<title layout:title-pattern="$LAYOUT_TITLE / $CONTENT_TITLE">WMS</title>
 </head>
 
 <body>
@@ -53,32 +46,30 @@
 					<li class="nav-item"><a class="nav-link" th:href="@{/err}">#!error</a></li>
 					<li class="nav-item dropdown"><a
 						class="nav-link dropdown-toggle" href="#" id="navbardrop"
-						data-toggle="dropdown"><i class="fa fa-globe"></i><span>lang</span> <span
-							th:switch="__${#locale}__"> 
-							<span th:case="'pl'">ipl</span>
-							<span th:case="'en'">ien</span> 
-							<span th:case="'it'">iit</span>
-						</span>
-					</a>
+						data-toggle="dropdown"><i class="fa fa-globe"></i><span>lang</span>
+							<span th:switch="__${#locale}__"> <span th:case="'pl'">ipl</span>
+								<span th:case="'en'">ien</span> <span th:case="'it'">iit</span>
+						</span> </a>
 						<div class="dropdown-menu">
-							<a class="dropdown-item" href="?lang=pl">pl</a> 
-							<a class="dropdown-item" href="?lang=en">en</a> 
-							<a class="dropdown-item" href="?lang=it">it</a>
+							<a class="dropdown-item" href="?lang=pl">pl</a> <a
+								class="dropdown-item" href="?lang=en">en</a> <a
+								class="dropdown-item" href="?lang=it">it</a>
 						</div></li>
-						
-					<li class="nav-item" sec:authorize="isAuthenticated()">
-					<a class="nav-link" href="javascript: document.logoutForm.submit()"><i class="fa fa-lock"></i> logout, <span sec:authentication="name"></span></a>
+
+					<li class="nav-item" sec:authorize="isAuthenticated()"><a
+						class="nav-link" href="javascript: document.logoutForm.submit()"><i
+							class="fa fa-lock"></i> logout, <span sec:authentication="name"></span></a>
 					</li>
-					<li class="nav-item" sec:authorize="isAnonymous()">
-					<a class="nav-link" th:href="@{/login}"><i class="fa fa-unlock"></i> login</a>
-					</li>
+					<li class="nav-item" sec:authorize="isAnonymous()"><a
+						class="nav-link" th:href="@{/login}"><i class="fa fa-unlock"></i>
+							login</a></li>
 				</ul>
-		
+
 			</div>
 		</nav>
 	</header>
 	<!-- /NAV -->
-	
+
 	<main>
 		<!--- CONTENT -->
 		<div layout:fragment="content"></div>
@@ -87,9 +78,8 @@
 	<!--- FOOTER -->
 	<footer class="footer">
 		<div class="container">
-		<span class="" >
-				&copy; 2020 Krzysztof Michalak, IT ADR Polska S.A.
-				<!-- &middot; <a href="#">Privacy</a> &middot; <a href="#">Terms</a>  -->
+			<span class=""> &copy; 2020 Krzysztof Michalak, IT ADR Polska
+				S.A. <!-- &middot; <a href="#">Privacy</a> &middot; <a href="#">Terms</a>  -->
 			</span>
 		</div>
 	</footer>
