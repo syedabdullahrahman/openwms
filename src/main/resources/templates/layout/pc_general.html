@@ -35,42 +35,112 @@
 			<div class="collapse navbar-collapse flex-grow-0"
 				id="navbarSupportedContent">
 				<ul class="navbar-nav text-right">
-					<li class="nav-item"><a class="nav-link" th:href="@{/}"><i
-							class="fa fa-home margin-right-5"></i>home</a></li>
-					<li class="nav-item"><a class="nav-link" th:href="@{/info}"><i
-							class="fa fa-info margin-right-5"></i>info</a></li>
-					<li class="nav-item"><a class="nav-link"
-						th:href="@{/user/exec}">@exec</a></li>
-					<li class="nav-item"><a class="nav-link"
-						th:href="@{/admin/manage}">@manage</a></li>
-					<li class="nav-item"><a class="nav-link" th:href="@{/err}">#!error</a></li>
-					<li class="nav-item dropdown"><a
-						class="nav-link dropdown-toggle" href="#" id="navbardrop"
-						data-toggle="dropdown"><i class="fa fa-globe"></i><span>lang</span>
-							<span th:switch="__${#locale}__"> <span th:case="'pl'">ipl</span>
-								<span th:case="'en'">ien</span> <span th:case="'it'">iit</span>
-						</span> </a>
-						<div class="dropdown-menu">
-							<a class="dropdown-item" href="?lang=pl">pl</a> <a
-								class="dropdown-item" href="?lang=en">en</a> <a
-								class="dropdown-item" href="?lang=it">it</a>
-						</div></li>
-
-					<li class="nav-item" sec:authorize="isAuthenticated()"><a
-						class="nav-link" href="javascript: document.logoutForm.submit()"><i
-							class="fa fa-lock"></i> logout, <span sec:authentication="name"></span></a>
+					<li class="nav-item">
+						<a class="nav-link" th:href="@{/}">
+							<i class="fa fa-home margin-right-5"></i>
+							<span th:text="#{site.menu.home}"></span>
+						</a>
 					</li>
-					<li class="nav-item" sec:authorize="isAnonymous()"><a
-						class="nav-link" th:href="@{/login}"><i class="fa fa-unlock"></i>
-							login</a></li>
-				</ul>
+					<li class="nav-item">
+						<a class="nav-link" th:href="@{/info}">
+							<i class="fa fa-info margin-right-5"></i>
+							<span th:text="#{site.menu.information}"></span>
+						</a>
+					</li>
+		
+					<li class="nav-item dropdown">
+						<a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+							<i class="fa fa-globe">
+							</i><span th:text="#{site.menu.language}"></span>
+							<!-- 
+							<span th:switch="__${#locale}__"> 
+								<img th:case="'pl'" th:src="@{/images/layout/i18n/polish_flag.jpg}"/>
+								<img th:case="'en'" th:src="@{/images/layout/i18n/english_flag.gif}"/>
+								<img th:case="'it'" th:src="@{/images/layout/i18n/italian_flag.png}"/>
+							 </span> 
+							 -->
+						</a>
+						<div class="dropdown-menu">
+								<a class="dropdown-item" href="?lang=pl">
+									<img th:src="@{/images/layout/i18n/polish_flag.jpg}"/>
+									<span th:text="#{site.menu.language.polish}"></span>
+								</a> 
+									<a class="dropdown-item" href="?lang=en">
+									<img th:src="@{/images/layout/i18n/english_flag.gif}"/>
+									<span th:text="#{site.menu.language.english}"></span> 
+								</a> 
+								<a class="dropdown-item" href="?lang=it">
+									<img th:src="@{/images/layout/i18n/italian_flag.png}"/>
+									<span th:text="#{site.menu.language.italian}"></span>
+								</a>
+						</div>
+					</li>
 
+					<li class="nav-item" sec:authorize="isAnonymous()">
+						<a class="nav-link" th:href="@{/login}">
+							<i class="fa fa-unlock"></i>
+							<span th:text="#{site.menu.login}"></span>
+						</a>
+					</li>
+					<li class="nav-item" sec:authorize="isAuthenticated()">
+						<a class="nav-link" href="javascript: document.logoutForm.submit()">
+							<i class="fa fa-lock"></i>
+							<span th:text="#{site.menu.logout}"></span>, 
+							<span sec:authentication="name"></span>
+						</a>
+					</li>
+				</ul>
 			</div>
 		</nav>
 	</header>
 	<!-- /NAV -->
 
+
 	<main>
+	<!-- MESSAGES -->
+		<div class="container top-alerts">
+			<!-- LIVE FEED -->
+			<div th:if="${live}"
+				class="top-alert alert alert-primary alert-dismissible fade show"
+				role="alert">
+				<span th:text="${live}">error</span>
+				<button type="button" class="close" data-dismiss="alert"
+					aria-label="Close" style="outline: 0;">
+					<span aria-hidden="true">&times;</span>
+				</button>
+			</div>
+			<!-- ERROR -->
+			<div th:if="${error}"
+				class="top-alert alert alert-danger alert-dismissible fade show"
+				role="alert">
+				<span th:text="${error}">error</span>
+				<button type="button" class="close" data-dismiss="alert"
+					aria-label="Close" style="outline: 0;">
+					<span aria-hidden="true">&times;</span>
+				</button>
+			</div>
+			<!-- WARNING -->
+			<div th:if="${warning}"
+				class="top-alert alert alert-warning alert-dismissible fade show"
+				role="alert">
+				<span th:text="${warning}">error</span>
+				<button type="button" class="close" data-dismiss="alert"
+					aria-label="Close" style="outline: 0;">
+					<span aria-hidden="true">&times;</span>
+				</button>
+			</div>
+			<!-- MSG -->
+			<div th:if="${msg}"
+				class="top-alert alert alert-success alert-dismissible fade show"
+				role="alert">
+				<span th:text="${msg}">ok message</span>
+				<button type="button" class="close" data-dismiss="alert"
+					aria-label="Close" style="outline: 0;">
+					<span aria-hidden="true">&times;</span>
+				</button>
+			</div>
+		</div>
+		<!-- /MESSAGE -->
 		<!--- CONTENT -->
 		<div layout:fragment="content"></div>
 		<!-- /CONTENT -->

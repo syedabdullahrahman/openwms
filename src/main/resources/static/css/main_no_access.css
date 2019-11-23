@@ -1,0 +1,27 @@
+.maindiv {
+	align-items: center;
+	padding-top: 50px;
+	padding-bottom: 40px;
+}
+
+.subdiv {
+	text-align: center;
+	width: 100%;
+	max-width: 900px;
+	padding: 55px;
+	margin: 0 auto;
+}
+
+h1 {
+	font-family: "Arial Black", Gadget, sans-serif, sans-serif;
+	font-size: 40px;
+	margin: 10px 0px 40px 0px;
+	font-weight: 900;
+	left: 50%;
+}
+h2 {
+	margin-bottom: 10px;
+}
+p {
+	margin-bottom: 50px;
+}

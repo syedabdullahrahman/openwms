@@ -12,8 +12,19 @@
 
 */
 
-html {
+html  {
 	scroll-behavior: smooth;
+}
+
+.top-alerts {
+	position: relative;
+}
+
+.top-alert {
+	position: absolute; 
+	top: 7px; 
+	right: 0px; 
+	z-index: 1;
 }
 
 .nav-active-dark:active {

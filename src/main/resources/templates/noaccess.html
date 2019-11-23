@@ -1,37 +1,28 @@
 <!DOCTYPE html>
 <html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
 	xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
 	layout:decorate="~{layout/pc_general}">
-
 <head>
-<title th:text="|${status} / ${error}|"></title>
-
-<link type="text/css" rel="stylesheet" th:href="@{/css/home_noaccess.css}"
+<title th:text="#{site.title.no-access}"></title>
+<link type="text/css" rel="stylesheet" th:href="@{/css/main_no_access.css}"
 	media="screen,projection" />
 </head>
 <body>
 	<div layout:fragment="content">
-		<div id="notfound">
-			<div class="notfound">
-				<div class="notfound-404">
-					<h1 th:text="|#${status}!|" class="text-primary"></h1>
-				</div>
-				<h2><span th:text="|${error}|"></span></h2>
-				<p th:text="|${path} - ${message}|"></p>
-				<a class="btn btn-primary btn-lg" th:href="@{/}"><i class="fa fa-home margin-right-10"></i>home</a>
+		<div class="maindiv">
+			<div class="subdiv">
+
+				<h1 class="text-danger">
+					<i class="fa fa-user-lock"></i> 
+					<span th:text="#{noaccess.header}"></span>
+				</h1>
+				<h2 th:text="#{noaccess.message}"></h2>
+				<p th:text="#{noaccess.explanation}"></p>
+		
+				<a class="btn btn-warning btn-lg" th:href="@{/}"><i class="fa fa-home margin-right-10"></i>home</a>
 			</div>
 		</div>
-
-		<div class="container-fluid">
-			<h3 class="sub_title">#!error</h3>
-			<p th:text="|path: ${path}|"></p>
-			<p th:text="|error: ${error} ${status}|"></p>
-			<p th:text="|message: ${message}|"></p>
-			<p th:text="|exception: ${exception}|"></p>
-			<pre th:text="${trace}" style="margin-bottom: 100px;"></pre>
-		</div>
-
 	</div>
 </body>
-<!-- This templates was made by Colorlib (https://colorlib.com) -->
 </html>

@@ -35,6 +35,7 @@ public class HomeController {
 
 		model.addAttribute("text", "$@*&#@*#(");
 
+		model.addAttribute("msg","hello there");
 		return "home/home";
 	}
 	
@@ -60,7 +61,7 @@ public class HomeController {
 		throw new Exception("Fake Exception");
 	}
 	
-	@GetMapping("/admin/manage")
+	@GetMapping("/mng")
 	public String viewManagePage(Model model) {
 		System.out.println(userRepository.findByUsernameIgnoreCase("Manager"));
 		return "home/manage";

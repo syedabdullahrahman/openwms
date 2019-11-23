@@ -6,7 +6,7 @@
 <head>
 <title th:text="|${status} / ${error}|"></title>
 
-<link type="text/css" rel="stylesheet" th:href="@{/css/home_error.css}"
+<link type="text/css" rel="stylesheet" th:href="@{/css/main_error.css}"
 	media="screen,projection" />
 </head>
 <body>
@@ -18,7 +18,9 @@
 				</div>
 				<h2><span th:text="|${error}|"></span></h2>
 				<p th:text="|${path} - ${message}|"></p>
+				<p class="text-secondary" th:text="#{error.explanation}"></p>
 				<a class="btn btn-primary btn-lg" th:href="@{/}"><i class="fa fa-home margin-right-10"></i>home</a>
+				
 			</div>
 		</div>
 
