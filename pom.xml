@@ -69,6 +69,12 @@
 			<artifactId>jquery</artifactId>
 			<version>3.4.1</version>
 		</dependency>
+		<!-- POPPER -->
+		<dependency>
+			<groupId>org.webjars</groupId>
+			<artifactId>popper.js</artifactId>
+			<version>1.12.9-1</version>
+		</dependency>
 		<!-- WEBJARS LOCATOR -->
 		<dependency>
 			<groupId>org.webjars</groupId>

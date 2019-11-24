@@ -5,49 +5,82 @@
 	layout:decorate="~{layout/pc_general}">
 
 <head>
+<script>
+
+</script>
+
 <title th:text="#{site.title.home}"></title>
 </head>
 <body>
 	<div layout:fragment="content" class="container-fluid?">
 		<div class="jumbotron">
 			<div class="container">
-				<h1 class="display-7">Hello, Spring Boot Security!</h1>
-				<p class="lead">This is the home page of our web application.
-					Anyone can access it, even if they have not signed in.</p>
-				<hr class="my-4">
-				<p>Using this example, you will become more familiar with Spring
-					Security concepts:)</p>
-				<p class="lead">
-					<a class="btn btn-primary btn-lg"
-						href="https://spring.io/projects/spring-security" role="button">Learn
-						more about Spring Security</a>
-				</p>
+				<h1 class="display-7">Mapa magazynu</h1>
+
 			</div>
 		</div>
+
+		<div class="container">
+			// bootstrap-select
+						<select class="selectpicker">
+					<optgroup label="Magazyn przyjęć - MPY">
+						<option>A - obszar główny</option>
+						<option>B - obszar dodatkowy</option>
+					</optgroup>
+					<optgroup label="Magazyn produkcyjny - MPD">
+						<option>M - materiały</option>
+						<option>P - półprodukty</option>
+						<option>F - produkty gotowe</option>
+					</optgroup>
+					<optgroup label="Magazyn wysyłkowy - MWS">					
+						<option>O - Strefa odkładcza</option>
+						<option>A - obszar główny</option>
+						<option>B - obszar pomocniczy</option>
+						<option>C - oczekujące</option>
+					</optgroup>
+				</select>
 		
-      <div class="container">
-        <!-- Example row of columns -->
-        <div class="row">
-          <div class="col-md-4">
-            <h2>Heading</h2>
-            <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-            <p><a class="btn btn-secondary" href="#" role="button">View details &raquo;</a></p>
-          </div>
-          <div class="col-md-4">
-            <h2>Heading</h2>
-            <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-            <p><a class="btn btn-secondary" href="#" role="button">View details &raquo;</a></p>
-          </div>
-          <div class="col-md-4">
-            <h2>Heading</h2>
-            <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
-            <p><a class="btn btn-secondary" href="#" role="button">View details &raquo;</a></p>
-          </div>
-        </div>
+			<!-- Example row of columns -->
+			<div class="row">
+				<div class="col-md-4">
+					<h2>Heading</h2>
+					<p>Donec id elit non mi porta gravida at eget metus. Fusce
+						dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh,
+						ut fermentum massa justo sit amet risus. Etiam porta sem malesuada
+						magna mollis euismod. Donec sed odio dui.</p>
+					<p>
+						<a class="btn btn-secondary" href="#" role="button">View
+							details &raquo;</a>
+					</p>
+				</div>
+				<div class="col-md-4">
+					<h2>Heading</h2>
+					<p>Donec id elit non mi porta gravida at eget metus. Fusce
+						dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh,
+						ut fermentum massa justo sit amet risus. Etiam porta sem malesuada
+						magna mollis euismod. Donec sed odio dui.</p>
+					<p>
+						<a class="btn btn-secondary" href="#" role="button">View
+							details &raquo;</a>
+					</p>
+				</div>
+				<div class="col-md-4">
+					<h2>Heading</h2>
+					<p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis
+						in, egestas eget quam. Vestibulum id ligula porta felis euismod
+						semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris
+						condimentum nibh, ut fermentum massa justo sit amet risus.</p>
+					<p>
+						<a class="btn btn-secondary" href="#" role="button">View
+							details &raquo;</a>
+					</p>
+				</div>
+			</div>
 
-        <hr>
+			<hr>
 
-      </div> <!-- /container -->
+		</div>
+		<!-- /container -->
 	</div>
 </body>
 </html>
