@@ -68,6 +68,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter{
 		.tokenValiditySeconds(2592000)
 		.key("owms")
 		.rememberMeParameter("remember-me")
+		
 		.and()
 		.exceptionHandling().accessDeniedPage("/noaccess")
 		

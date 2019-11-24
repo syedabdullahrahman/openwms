@@ -32,16 +32,13 @@ public class DatabaseManagementService {
         Role standardR = new Role("STANDARD");
         Role managerR = new Role("MANAGER");
         Role adminR = new Role("ADMIN");
-
         List<Role> roles = Arrays.asList(standardR,managerR,adminR);
         // Save to db
         this.roleRepository.saveAll(roles);
-        
         result += "[!Roles:] " + standardR + "; " + managerR + "; " + adminR;
 		
         // Delete users
         this.userRepository.deleteAll();
-        
         // Create users
         User userU = new User("User",passwordEncoder.encode("user"));
         userU.addRole(standardR);
@@ -49,14 +46,11 @@ public class DatabaseManagementService {
         managerU.addRole(managerR);
         User adminU = new User("Admin",passwordEncoder.encode("admin"));
         adminU.addRole(adminR);
-        
         List<User> users = Arrays.asList(userU,adminU,managerU);
         // Save to db
         this.userRepository.saveAll(users);
-        
         result += "[!Users:] " + userU + "; " + managerU + "; " + adminU;
-        
-        
+
         return result;
     }
 }
