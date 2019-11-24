@@ -22,9 +22,29 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 @EnableTransactionManagement
 public class DataSourceConfig {
 
-	@SuppressWarnings("unused")
-	private static final String ORACLE_DRIVER = "oracle.jdbc.driver.OracleDriver";
+	private static final String MYSQL_DRIVER = "com.mysql.cj.jdbc.Driver";
 
+	@Profile("mysql")
+	@Primary
+	@Bean
+	public DataSource dataSource() {
+		DriverManagerDataSource dataSource = new DriverManagerDataSource();
+		dataSource.setDriverClassName(MYSQL_DRIVER);
+		dataSource.setUrl(
+				"jdbc:mysql://localhost:3306/openwms?useSSL=false&serverTimezone=UTC&createDatabaseIfNotExist=true");
+		dataSource.setUsername("root");
+		dataSource.setPassword("pass");
+		return dataSource;
+	}
+	
+	Properties additionalProperties() {
+		Properties properties = new Properties();
+		properties.setProperty("hibernate.hbm2ddl.auto", "update");
+		properties.setProperty("hibernate.dialect", "org.hibernate.dialect.MySQL5Dialect");
+
+		return properties;
+	}
+	
 	@Profile("mysql")
 	@Primary
 	@Bean
@@ -40,18 +60,6 @@ public class DataSourceConfig {
 		return em;
 	}
 
-	@Profile("mysql")
-	@Primary
-	@Bean
-	public DataSource dataSource() {
-		DriverManagerDataSource dataSource = new DriverManagerDataSource();
-		dataSource.setDriverClassName("com.mysql.cj.jdbc.Driver");
-		dataSource.setUrl(
-				"jdbc:mysql://localhost:3306/openwms?useSSL=false&serverTimezone=UTC&createDatabaseIfNotExist=true");
-		dataSource.setUsername("root");
-		dataSource.setPassword("pass");
-		return dataSource;
-	}
 
 	@Bean
 	public PlatformTransactionManager transactionManager(EntityManagerFactory emf) {
@@ -66,12 +74,6 @@ public class DataSourceConfig {
 		return new PersistenceExceptionTranslationPostProcessor();
 	}
 
-	Properties additionalProperties() {
-		Properties properties = new Properties();
-		properties.setProperty("hibernate.hbm2ddl.auto", "update");
-		properties.setProperty("hibernate.dialect", "org.hibernate.dialect.MySQL5Dialect");
 
-		return properties;
-	}
 
 }

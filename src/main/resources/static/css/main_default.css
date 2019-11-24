@@ -22,6 +22,7 @@ html  {
 
 .top-alert {
 	position: absolute; 
+	max-width: 550px;
 	top: 7px; 
 	right: 0px; 
 	z-index: 1;

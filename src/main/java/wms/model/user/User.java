@@ -1,14 +1,18 @@
 package wms.model.user;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+import java.util.HashSet;
+import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
 
@@ -30,22 +34,22 @@ public class User {
 	@Column(name = "active", nullable = false)
 	private boolean active;
 	
-	@Column(name = "roles", nullable = false)
-	private String roles = "";
-	
-	@Column(name = "permissions", nullable = false)
-	private String permissions = "";
-	
-	public User(String username, String password, String roles, String permissions) {
-        this.username = username;
-        this.password = password;
-        this.roles = roles;
-        this.permissions = permissions;
-        this.active = true;
+    @ManyToMany(cascade=CascadeType.ALL, fetch=FetchType.EAGER)
+    @JoinTable(
+    		name = "user_role", 
+    		joinColumns = @JoinColumn(name = "user_id"), 
+    		inverseJoinColumns = @JoinColumn(name = "role_id"))
+    private Set<Role> roles;
+    
+	public User() {
+		this.roles = new HashSet<>();
 	}
 	
-	public User() {
-		
+	public User(String username, String password) {
+        this.username = username;
+        this.password = password;
+        this.active = true;
+        this.roles = new HashSet<>();
 	}
 
 	public int getId() {
@@ -80,40 +84,22 @@ public class User {
 		this.active = active;
 	}
 
-	public String getRoles() {
-		return roles;
-	}
-
-	public void setRoles(String roles) {
-		this.roles = roles;
-	}
-
-	public String getPermissions() {
-		return permissions;
-	}
-
-	public void setPermissions(String permissions) {
-		this.permissions = permissions;
-	}
-	
-    public List<String> getRoleList(){
-        if(this.roles.length() > 0){
-            return Arrays.asList(this.roles.split(";"));
-        }
-        return new ArrayList<>();
+    public Set<Role> getRoles() {
+        return roles;
     }
-
-    public List<String> getPermissionList(){
-        if(this.permissions.length() > 0){
-            return Arrays.asList(this.permissions.split(";"));
-        }
-        return new ArrayList<>();
+    
+    public void setRoles(Set<Role> roles) {
+        this.roles = roles;
     }
-
+    
+    public void addRole(Role role) {
+    	this.roles.add(role);
+    }
+    
 	@Override
 	public String toString() {
-		return "User [id=" + id + ", username=" + username + ", password=" + password + ", active=" + active
-				+ ", roles=" + roles + ", permissions=" + permissions + "]";
+		return "User [id=" + id + ", username=" + username + ", active=" + active
+				+ ", roles=" + roles + "]";
 	}
     
     
