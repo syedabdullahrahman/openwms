@@ -25,7 +25,7 @@
 	<header>
 		<nav
 			class="navbar navbar-expand-sm bg-dark navbar-dark justify-content-end">
-			<a class="navbar-brand mr-auto mr-1" href="#"><img
+			<a class="navbar-brand mr-auto mr-1" th:href="@{/}"><img
 				class="nav-logo" th:src="@{/images/layout/logo.png}" />Open WMS</a>
 
 			<button class="navbar-toggler" type="button" data-toggle="collapse"
@@ -83,7 +83,9 @@
 						</a>
 					</li>
 					<li class="nav-item" sec:authorize="isAuthenticated()">
-						<a class="nav-link" href="javascript: document.logoutForm.submit()">
+						<a class="nav-link" href="javascript: document.logoutForm.submit()"
+							th:onclick="|return confirm('#{general.areyousure}')|" 
+						>
 							<i class="fa fa-lock"></i>
 							<span th:text="#{site.menu.logout}"></span>, 
 							<span sec:authentication="name"></span>

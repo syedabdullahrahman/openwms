@@ -61,7 +61,7 @@ public class SystemController {
 			model.addAttribute("dayOfYearBin", Integer.toBinaryString(dayOfYear));
 			model.addAttribute("dayOfYearHex", Integer.toHexString(dayOfYear));
 
-			model.addAttribute("error", "$@*&#@*#(");
+			//model.addAttribute("error", "$@*&#@*#(");
 
 			model.addAttribute("msg","hello there");
 			
