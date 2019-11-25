@@ -1,5 +1,4 @@
 /*
-
     *-primary changes the color to blue #007bff.
     *-info changes the color to teal #17a2b8.
     *-success changes the color to green #28a745.
@@ -9,7 +8,6 @@
     *-secondary changes the color to gray #6c757d.
     *-light changes the color to light gray #f8f9fa.
     *-white changes the color to white #ffffff.
-
 */
 
 html  {
@@ -36,6 +34,14 @@ html  {
 	margin-right: 10px;
 	width: 40px;
 	height: 40px;
+}
+
+.map-image {
+	margin-top: 15px;
+	min-width: 400px;
+    max-width: 100%;
+    max-height: 100%;
+    border: 1px solid #6c757d;
 }
 
 .border-black {
@@ -78,6 +84,9 @@ i {
 }
 .margin-top-30{
 	margin-top: 30px;
+}
+.margin-top-60{
+	margin-top: 60px;
 }
 
 .margin-right-5{

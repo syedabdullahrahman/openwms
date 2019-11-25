@@ -8,7 +8,7 @@ public class ManagementController {
 
 	@GetMapping("/manage")
 	public String viewManagementPage() {
-		return "manage/index";
+		return "manage/manage";
 	}
 		
 }

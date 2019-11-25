@@ -1,40 +1,54 @@
+/*
+    *-primary changes the color to blue #007bff.
+    *-info changes the color to teal #17a2b8.
+    *-success changes the color to green #28a745.
+    *-warning changes the color to yellow #ffc107.
+    *-danger changes the color to red #dc3545.
+    
+    *-dark changes the color to dark gray #343a40.
+    *-secondary changes the color to gray #6c757d.
+    *-light changes the color to light gray #f8f9fa.
+    *-white changes the color to white #ffffff.
+*/
+
 /* Sticky footer styles
 -------------------------------------------------- */
 html {
-  position: relative;
-  min-height: 100%;
-}
-body {
-  /* Margin bottom by footer height */
-  margin-bottom: 50px;
-}
-.footer {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  /* Set the fixed height of the footer here */
-  height: 50px;
-  line-height: 50px; /* Vertically center the text there */
-  background-color: #343a40;
-  color: #AcB5Bd;
-  font-size: 85%;
+	position: relative;
+	min-height: 100%;
 }
 
+body {
+	/* Margin bottom by footer height */
+	margin-bottom: 40px;
+}
+
+.footer {
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+	/* Set the fixed height of the footer here */
+	height: 40px;
+	line-height: 39px; /* Vertically center the text there */
+	border-top: 1px solid #343a40;
+	background-color: #343a40;
+	color: #f8f9fa;
+	font-size: 85%;
+}
 
 /* Custom page CSS
 -------------------------------------------------- */
 /* Not required for template or sticky footer method. */
-
-body > .container {
-  padding: 50px 0px 0;
+body>.container {
+	padding: 50px 0px 0;
 }
 
-.footer > .container {
-  padding-right: 15px;
-  padding-left: 15px;
-  margin-bottom: 0px;
+.footer>.container {
+	padding-right: 15px;
+	padding-left: 15px;
+	margin-bottom: 0px;
 }
 
 code {
-  font-size: 80%;
+	font-size: 80%;
 }

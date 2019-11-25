@@ -3,84 +3,89 @@
 	xmlns:th="http://www.thymeleaf.org"
 	xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
 	layout:decorate="~{layout/pc_general}">
-
 <head>
-<script>
-
-</script>
-
 <title th:text="#{site.title.home}"></title>
 </head>
 <body>
+
+	<div layout:fragment="script">
+		<script>
+			$(document).ready(function(e) {
+				$('.selectpicker').selectpicker();
+			});
+		</script>
+	</div>
 	<div layout:fragment="content" class="container-fluid?">
+		
 		<div class="jumbotron">
 			<div class="container">
-				<h1 class="display-7">Mapa magazynu</h1>
-
+				<div class="row">
+				 <div class="col-sm-12 col-md-4">
+					<h1 class="display-7" th:text="#{home.layout}"></h1>
+					<select class="selectpicker" data-live-search="true">
+						<optgroup label="MPY - Magazyn przyjęć">
+							<option>A - obszar główny</option>
+							<option>B - obszar dodatkowy</option>
+						</optgroup>
+						<optgroup label="MPD - Magazyn produkcyjny">
+							<option>M - materiały</option>
+							<option>P - półprodukty</option>
+							<option>F - produkty gotowe</option>
+						</optgroup>
+						<optgroup label="MWS - Magazyn wysyłkowy">
+							<option>O - strefa odkładcza</option>
+							<option>A - obszar główny</option>
+							<option>B - obszar pomocniczy</option>
+							<option>C - oczekujące</option>
+						</optgroup>
+					</select>
+				</div>
+				<div class="col-sm-12 col-md-8">
+					<img class="map-image" th:src="@{/images/map.png}" />
+				</div>
+				</div>
 			</div>
 		</div>
-
-		<div class="container">
-			// bootstrap-select
-						<select class="selectpicker">
-					<optgroup label="Magazyn przyjęć - MPY">
-						<option>A - obszar główny</option>
-						<option>B - obszar dodatkowy</option>
-					</optgroup>
-					<optgroup label="Magazyn produkcyjny - MPD">
-						<option>M - materiały</option>
-						<option>P - półprodukty</option>
-						<option>F - produkty gotowe</option>
-					</optgroup>
-					<optgroup label="Magazyn wysyłkowy - MWS">					
-						<option>O - Strefa odkładcza</option>
-						<option>A - obszar główny</option>
-						<option>B - obszar pomocniczy</option>
-						<option>C - oczekujące</option>
-					</optgroup>
-				</select>
 		
-			<!-- Example row of columns -->
+		
+		<div class="container margin-top-20">
 			<div class="row">
-				<div class="col-md-4">
-					<h2>Heading</h2>
-					<p>Donec id elit non mi porta gravida at eget metus. Fusce
-						dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh,
-						ut fermentum massa justo sit amet risus. Etiam porta sem malesuada
-						magna mollis euismod. Donec sed odio dui.</p>
+				<div class="col-sm-12 col-md-4">
+					<h2 class="margin-bottom-20"><i class="fa fa-dolly-flatbed margin-right-10"></i>
+					<span th:text="#{home.feature.input.title}"></span></h2>
+					<p th:text ="#{home.feature.input.text}"></p>
 					<p>
-						<a class="btn btn-secondary" href="#" role="button">View
-							details &raquo;</a>
+						<a class="btn btn-primary" href="#" role="button" th:text="|#{action.go} &raquo;|"></a>
 					</p>
 				</div>
-				<div class="col-md-4">
-					<h2>Heading</h2>
-					<p>Donec id elit non mi porta gravida at eget metus. Fusce
-						dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh,
-						ut fermentum massa justo sit amet risus. Etiam porta sem malesuada
-						magna mollis euismod. Donec sed odio dui.</p>
+				<div class="col-sm-12 col-md-4">
+					<h2 class="margin-bottom-20"><i class="fa fa-clipboard-check margin-right-10"></i>
+					<span th:text="#{home.feature.request.title}"></span></h2>
+					<p th:text ="#{home.feature.request.text}"></p>
 					<p>
-						<a class="btn btn-secondary" href="#" role="button">View
-							details &raquo;</a>
+						<a class="btn btn-primary" href="#" role="button" th:text="|#{action.go} &raquo;|"></a>
 					</p>
 				</div>
-				<div class="col-md-4">
-					<h2>Heading</h2>
-					<p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis
-						in, egestas eget quam. Vestibulum id ligula porta felis euismod
-						semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris
-						condimentum nibh, ut fermentum massa justo sit amet risus.</p>
+				<div class="col-sm-12 col-md-4">
+					<h2 class="margin-bottom-20"><i class="fa fa-search margin-right-10"></i>
+					<span th:text="#{home.feature.search.title}"></span></h2>
+					<p th:text ="#{home.feature.search.text}"></p>
 					<p>
-						<a class="btn btn-secondary" href="#" role="button">View
-							details &raquo;</a>
+						<a class="btn btn-primary" href="#" role="button" th:text="|#{action.go} &raquo;|"></a>
 					</p>
 				</div>
 			</div>
-
-			<hr>
+			
+		
 
 		</div>
-		<!-- /container -->
+		
+		
+		
+		
+		
+		
+		
 	</div>
 </body>
 </html>

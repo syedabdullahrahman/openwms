@@ -9,19 +9,18 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link rel="icon" type="image/png" th:href="@{/images/layout/logo.png}" />
     
-    
-<script type="text/javascript" th:src="@{/webjars/jquery/jquery.min.js/}"></script>
-<script type="text/javascript" th:src="@{/webjars/popper.js/popper.min.js/}"></script>
-<script type="text/javascript" th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
-
-<script type="text/javascript" th:src="@{/js/bootstrap-dropdown.js/}"></script>
-<script type="text/javascript" th:src="@{/bootstrap-select/js/bootstrap-select.min.js}"></script>
+<!-- 
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/css/bootstrap-select.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+ -->
 
 <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}" />
+<link rel="stylesheet" type="text/css" th:href="@{/css/main_footer_navbar.css}" media="screen,projection" />
 <link rel="stylesheet" type="text/css" th:href="@{/fontawesome/css/all.css}" media="screen,projection">
 <link rel="stylesheet" type="text/css" th:href="@{/css/main_default.css}" media="screen,projection" />
-<link rel="stylesheet" type="text/css" th:href="@{/css/main_footer_navbar.css}" media="screen,projection" />
-<link rel="stylesheet" type="text/css" th:href="@{/bootstrap-select/css/bootstrap-select.min.css}" media="screen,projection" />
+<link rel="stylesheet" type="text/css" th:href="@{/bootstrap-plugins/bootstrap-select.min.css}" media="screen,projection" />    
+    
+
 
 <title layout:title-pattern="$LAYOUT_TITLE / $CONTENT_TITLE">WMS</title>
 </head>
@@ -158,16 +157,33 @@
 		<!-- /CONTENT -->
 	</main>
 	<!--- FOOTER -->
+
 	<footer class="footer">
 		<div class="container">
+		<div class="row">
+			<div class="col">
 			<span class=""> &copy; 2020 Krzysztof Michalak, IT ADR Polska
-				S.A. <!-- &middot; <a href="#">Privacy</a> &middot; <a href="#">Terms</a>  -->
-			</span>
+				S.A. &middot;
+			</span>			
+			</div>
+			<div class="col">
+
+			</div>
+			<div class="col">
+
+			</div>
+		</div>
+
 		</div>
 	</footer>
+
 	<!-- /FOOTER -->
 
 	<!--- SCRIPTS -->
+	<script type="text/javascript" th:src="@{/webjars/jquery/jquery.min.js/}"></script>
+	<script type="text/javascript" th:src="@{/bootstrap-plugins/popper.min.js/}"></script>
+	<script type="text/javascript" th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>    
+    <script type="text/javascript" th:src="@{/bootstrap-plugins/bootstrap-select.min.js}"></script>
 	<script type="text/javascript" layout:fragment="script"></script>
 	<!-- /SCRIPTS -->
 	<!-- LOGOUT HIDDEN FORM -->
@@ -176,5 +192,8 @@
 		th:hidden="true">
 		<input type="submit" value="Sign Out" />
 	</form>
+	
+	
+	
 </body>
 </html>

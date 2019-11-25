@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
+	layout:decorate="~{layout/pc_general}">
+
+<head>
+<title th:text="#{site.title.manage}"></title>
+</head>
+<body>
+	<div layout:fragment="content" class="container-fluid?">
+		<div class="jumbotron">
+			<div class="container">
+				<h1 class="display-7" th:text="#{manage.panel.title}"></h1>
+				<p class="lead" th:text="#{manage.panel.description}"></p>
+				<hr class="my-4">
+				<div class="text-right">
+				<p>"<span class="text-italic" th:text="#{manage.panel.quote}"></span>"<br/><span>Peter Parker, 1961</span></p>
+				</div>
+			</div>
+		</div>
+		<div class="container">
+			<div class="row">
+				<div class="col-sm-12 col-md-4">
+					<h2 class="margin-bottom-20"><i class="fa fa-users-cog margin-right-10"></i>
+					<span th:text="#{manage.feature.users.title}"></span></h2>
+					<p th:text ="#{manage.feature.users.text}"></p>
+					<p>
+						<a class="btn btn-primary" href="#" role="button" th:text="|#{action.go} &raquo;|"></a>
+					</p>
+				</div>
+				<div class="col-sm-12 col-md-4">
+					<h2 class="margin-bottom-20"><i class="fa fa-warehouse margin-right-10"></i>
+					<span th:text="#{manage.feature.locations.title}"></span></h2>
+					<p th:text ="#{manage.feature.locations.text}"></p>
+					<p>
+						<a class="btn btn-primary" href="#" role="button" th:text="|#{action.go} &raquo;|"></a>
+					</p>
+				</div>
+				<div class="col-sm-12 col-md-4">
+					<h2 class="margin-bottom-20"><i class="fa fa-box-open margin-right-10"></i>
+					<span th:text="#{manage.feature.adjustments.title}"></span></h2>
+					<p th:text ="#{manage.feature.adjustments.text}"></p>
+					<p>
+						<a class="btn btn-primary" href="#" role="button" th:text="|#{action.go} &raquo;|"></a>
+					</p>
+				</div>
+			</div>
+
+			<hr>
+
+		</div>
+		<!-- /container -->
+	</div>
+</body>
+</html>
