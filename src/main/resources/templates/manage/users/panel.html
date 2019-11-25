@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
+	layout:decorate="~{layout/pc_general}">
+
+<head>
+	<title th:text="#{site.title.users}"></title>
+</head>
+<body>
+	<div layout:fragment="script">
+<script>
+</script>
+		<script th:if="__${#locale}__ == 'pl'">
+		alert(getUrl() + "polish.json");
+			$('#users').DataTable({
+				language : {
+					url : getUrl() + "polish.json",
+				}
+			});
+		</script>
+		<script th:if="__${#locale}__ == 'it'">
+			$('#users').DataTable({
+				language : {
+					url : getUrl() + "italian.json",
+				}
+			});
+		</script>
+		<script th:if="__${#locale}__ == 'en'">
+			$('#users').DataTable();
+		</script>
+
+ <!-- 
+		<script>
+		$(document).ready( function () {
+		    $('#users').DataTable();
+		} );
+		</script>
+		-->
+	</div>
+	
+	<div layout:fragment="content">
+		<div class="container">
+			<div class="row">
+				<div class="col subintro">
+					<h1>
+						<i class="fa fa-users-cog"></i><span
+							th:text="#{manage.feature.users.title}"></span>
+					</h1>
+					<p>lorem ipsum con dolore ergo hestia nie wiem co dalej :0</p>
+					<a th:href="@{/manage}">&laquo; <span th:text="#{action.back}"></span></a>
+					<hr>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col">
+
+					<table id="users" class="table table-striped table-hover compact nowrap" style="width:100%">
+						<thead>
+							<tr>
+								<th>Column 1</th>
+								<th>Column 2</th>
+								<th>Column 1</th>
+								<th>Column 2</th>
+								<th>Column 1</th>
+								<th>Column 2</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>Row 1 Data 1</td>
+								<td>Row 1 Data 2</td>
+								<td>Row 1 Data 1</td>
+								<td>Row 1 Data 2</td>
+								<td>Row 1 Data 1</td>
+								<td>Row 1 Data 2</td>
+							</tr>
+							<tr>
+								<td>Row 2 Data 1</td>
+								<td>Row 2 Data 2</td>
+								<td>Row 2 Data 1</td>
+								<td>Row 2 Data 2</td>
+								<td>Row 2 Data 1</td>
+								<td>Row 2 Data 2</td>
+							</tr>
+							<tr>
+								<td>Row 1 Data 1</td>
+								<td>Row 1 Data 2</td>
+								<td>Row 1 Data 1</td>
+								<td>Row 1 Data 2</td>
+								<td>Row 1 Data 1</td>
+								<td>Row 1 Data 2</td>
+							</tr>
+							<tr>
+								<td>Row 2 Data 1</td>
+								<td>Row 2 Data 2</td>
+								<td>Row 2 Data 1</td>
+								<td>Row 2 Data 2</td>
+								<td>Row 2 Data 1</td>
+								<td>Row 2 Data 2</td>
+							</tr>
+							<tr>
+								<td>Row 1 Data 1</td>
+								<td>Row 1 Data 2</td>
+								<td>Row 1 Data 1</td>
+								<td>Row 1 Data 2</td>
+								<td>Row 1 Data 1</td>
+								<td>Row 1 Data 2</td>
+							</tr>
+							<tr>
+								<td>Row 2 Data 1</td>
+								<td>Row 2 Data 2</td>
+								<td>Row 2 Data 1</td>
+								<td>Row 2 Data 2</td>
+								<td>Row 2 Data 1</td>
+								<td>Row 2 Data 2</td>
+							</tr>
+							<tr>
+								<td>Row 1 Data 1</td>
+								<td>Row 1 Data 2</td>
+								<td>Row 1 Data 1</td>
+								<td>Row 1 Data 2</td>
+								<td>Row 1 Data 1</td>
+								<td>Row 1 Data 2</td>
+							</tr>
+							<tr>
+								<td>Row 2 Data 1</td>
+								<td>Row 2 Data 2</td>
+								<td>Row 2 Data 1</td>
+								<td>Row 2 Data 2</td>
+								<td>Row 2 Data 1</td>
+								<td>Row 2 Data 2</td>
+							</tr>
+							<tr>
+								<td>Row 1 Data 1</td>
+								<td>Row 1 Data 2</td>
+								<td>Row 1 Data 1</td>
+								<td>Row 1 Data 2</td>
+								<td>Row 1 Data 1</td>
+								<td>Row 1 Data 2</td>
+							</tr>
+							<tr>
+								<td>Row 2 Data 1</td>
+								<td>Row 2 Data 2</td>
+								<td>Row 2 Data 1</td>
+								<td>Row 2 Data 2</td>
+								<td>Row 2 Data 1</td>
+								<td>Row 2 Data 2</td>
+							</tr>
+							<tr>
+								<td>Row 1 Data 1</td>
+								<td>Row 1 Data 2</td>
+								<td>Row 1 Data 1</td>
+								<td>Row 1 Data 2</td>
+								<td>Row 1 Data 1</td>
+								<td>Row 1 Data 2</td>
+							</tr>
+							<tr>
+								<td>Row 2 Data 1</td>
+								<td>Row 2 Data 2</td>
+								<td>Row 2 Data 1</td>
+								<td>Row 2 Data 2</td>
+								<td>Row 2 Data 1</td>
+								<td>Row 2 Data 2</td>
+							</tr>
+							<tr>
+								<td>Row 1 Data 1</td>
+								<td>Row 1 Data 2</td>
+								<td>Row 1 Data 1</td>
+								<td>Row 1 Data 2</td>
+								<td>Row 1 Data 1</td>
+								<td>Row 1 Data 2</td>
+							</tr>
+							<tr>
+								<td>Row 2 Data 1</td>
+								<td>Row 2 Data 2</td>
+								<td>Row 2 Data 1</td>
+								<td>Row 2 Data 2</td>
+								<td>Row 2 Data 1</td>
+								<td>Row 2 Data 2</td>
+							</tr>
+							<tr>
+								<td>Row 1 Data 1</td>
+								<td>Row 1 Data 2</td>
+								<td>Row 1 Data 1</td>
+								<td>Row 1 Data 2</td>
+								<td>Row 1 Data 1</td>
+								<td>Row 1 Data 2</td>
+							</tr>
+							<tr>
+								<td>Row 2 Data 1</td>
+								<td>Row 2 Data 2</td>
+								<td>Row 2 Data 1</td>
+								<td>Row 2 Data 2</td>
+								<td>Row 2 Data 1</td>
+								<td>Row 2 Data 2</td>
+							</tr>
+							<tr>
+								<td>Row 1 Data 1</td>
+								<td>Row 1 Data 2</td>
+								<td>Row 1 Data 1</td>
+								<td>Row 1 Data 2</td>
+								<td>Row 1 Data 1</td>
+								<td>Row 1 Data 2</td>
+							</tr>
+							<tr>
+								<td>Row 2 Data 1</td>
+								<td>Row 2 Data 2</td>
+								<td>Row 2 Data 1</td>
+								<td>Row 2 Data 2</td>
+								<td>Row 2 Data 1</td>
+								<td>Row 2 Data 2</td>
+							</tr>
+							<tr>
+								<td>Row 1 Data 1</td>
+								<td>Row 1 Data 2</td>
+								<td>Row 1 Data 1</td>
+								<td>Row 1 Data 2</td>
+								<td>Row 1 Data 1</td>
+								<td>Row 1 Data 2</td>
+							</tr>
+							<tr>
+								<td>Row 2 Data 1</td>
+								<td>Row 2 Data 2</td>
+								<td>Row 2 Data 1</td>
+								<td>Row 2 Data 2</td>
+								<td>Row 2 Data 1</td>
+								<td>Row 2 Data 2</td>
+							</tr>
+							<tr>
+								<td>Row 1 Data 1</td>
+								<td>Row 1 Data 2</td>
+								<td>Row 1 Data 1</td>
+								<td>Row 1 Data 2</td>
+								<td>Row 1 Data 1</td>
+								<td>Row 1 Data 2</td>
+							</tr>
+							<tr>
+								<td>Row 2 Data 1</td>
+								<td>Row 2 Data 2</td>
+								<td>Row 2 Data 1</td>
+								<td>Row 2 Data 2</td>
+								<td>Row 2 Data 1</td>
+								<td>Row 2 Data 2</td>
+							</tr>
+						</tbody>
+					</table>
+
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

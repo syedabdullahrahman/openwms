@@ -15,7 +15,7 @@
 				<p class="lead" th:text="#{manage.panel.description}"></p>
 				<hr class="my-4">
 				<div class="text-right">
-				<p>"<span class="text-italic" th:text="#{manage.panel.quote}"></span>"<br/><span>Peter Parker, 1961</span></p>
+				<p>"<span class="text-italic" th:text="#{manage.panel.quote}"></span>"<br/><span>Ben Parker, 1961</span></p>
 				</div>
 			</div>
 		</div>
@@ -26,7 +26,7 @@
 					<span th:text="#{manage.feature.users.title}"></span></h2>
 					<p th:text ="#{manage.feature.users.text}"></p>
 					<p>
-						<a class="btn btn-primary" href="#" role="button" th:text="|#{action.go} &raquo;|"></a>
+						<a class="btn btn-primary" th:href="@{/manage/users}" role="button" th:text="|#{action.go} &raquo;|"></a>
 					</p>
 				</div>
 				<div class="col-sm-12 col-md-4">

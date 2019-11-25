@@ -25,7 +25,7 @@ public class SystemController {
 		return "noaccess";
 	}
 	
-	@GetMapping("/dbinit")
+	@GetMapping("/init")
 	public String initDatabase(Model model) {
 		model.addAttribute("msg",dbManager.initializeDatabase());
 		return "home/home";

@@ -14,6 +14,10 @@ html  {
 	scroll-behavior: smooth;
 }
 
+.content {
+	margin-bottom: 60px;
+}
+
 .top-alerts {
 	position: relative;
 }
@@ -24,6 +28,23 @@ html  {
 	top: 7px; 
 	right: 0px; 
 	z-index: 1;
+}
+
+.subintro {
+	margin-top: 20px;
+}
+
+.subintro i {
+	margin-right: 10px;
+}
+
+.subintro p {
+	margin-top: 20px;
+	margin-bottom: 5px;
+}
+
+.subintro a{
+	margin-top: 0px;
 }
 
 .nav-active-dark:active {
