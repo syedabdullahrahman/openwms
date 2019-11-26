@@ -102,6 +102,11 @@
 				</ul>
 			</div>
 		</nav>
+		<!-- LOGOUT HIDDEN FORM -->
+		<form name="logoutForm" th:action="@{/logout}" method="post"
+			th:hidden="true">
+			<input type="submit" value="Sign Out" />
+		</form>
 	</header>
 	<!-- /NAV -->
 
@@ -173,15 +178,15 @@
     <script type="text/javascript" th:src="@{/datatables/jquery.dataTables.min.js}"></script>
 	<script type="text/javascript" th:src="@{/datatables/dataTables.bootstrap4.min.js}"></script>
 	<script type="text/javascript" th:src="@{/datatables/dataTables.url.helper.js}"></script>
-	
+	<script>
+		$(function () {
+	  		$('[data-toggle="tooltip"]').tooltip()
+		})
+	</script>
 	<script type="text/javascript" layout:fragment="script"></script>
 	<!-- /SCRIPTS -->
-	<!-- LOGOUT HIDDEN FORM -->
-	<!-- do href post logout -->
-	<form name="logoutForm" th:action="@{/logout}" method="post"
-		th:hidden="true">
-		<input type="submit" value="Sign Out" />
-	</form>
+	
+	
 	
 	
 	

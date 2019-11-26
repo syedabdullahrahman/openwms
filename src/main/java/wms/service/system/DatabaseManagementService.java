@@ -40,11 +40,11 @@ public class DatabaseManagementService {
         // Delete users
         this.userRepository.deleteAll();
         // Create users
-        User userU = new User("User",passwordEncoder.encode("user"));
+        User userU = new User("User", "Peter Parker", passwordEncoder.encode("user"));
         userU.addRole(standardR);
-        User managerU = new User("Manager",passwordEncoder.encode("manager"));
+        User managerU = new User("Manager", "Clark Kent", passwordEncoder.encode("manager"));
         managerU.addRole(managerR);
-        User adminU = new User("Admin",passwordEncoder.encode("admin"));
+        User adminU = new User("Admin", "Bruce Wayne", passwordEncoder.encode("admin"));
         adminU.addRole(adminR);
         List<User> users = Arrays.asList(userU,adminU,managerU);
         // Save to db

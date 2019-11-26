@@ -28,6 +28,9 @@ public class User {
 	@Column(name = "username", nullable = false)
 	private String username;
 	
+	@Column(name = "name", nullable = false)
+	private String name;
+	
 	@Column(name = "password", nullable = false)
 	private String password;
 	
@@ -42,10 +45,12 @@ public class User {
     private Set<Role> roles;
     
 	public User() {
+		this.active = true;
 		this.roles = new HashSet<>();
 	}
 	
-	public User(String username, String password) {
+	public User(String username, String name, String password) {
+		this.name = name;
         this.username = username;
         this.password = password;
         this.active = true;
@@ -66,6 +71,14 @@ public class User {
 
 	public void setUsername(String username) {
 		this.username = username;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
 	}
 
 	public String getPassword() {
@@ -95,14 +108,13 @@ public class User {
     public void addRole(Role role) {
     	this.roles.add(role);
     }
-    
+
 	@Override
 	public String toString() {
-		return "User [id=" + id + ", username=" + username + ", active=" + active
-				+ ", roles=" + roles + "]";
+		return "User [id=" + id + ", username=" + username + ", name=" + name + ", password=" + password + ", active="
+				+ active + ", roles=" + roles + "]";
 	}
     
-    
-	
+
 	
 }

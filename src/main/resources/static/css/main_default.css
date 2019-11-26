@@ -18,6 +18,10 @@ html  {
 	margin-bottom: 60px;
 }
 
+.white {
+	background-color: white;
+}
+
 .top-alerts {
 	position: relative;
 }
