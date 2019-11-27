@@ -114,40 +114,44 @@
 	<main>
 		<!-- MESSAGES -->
 		<div class="container top-alerts">
-			<!-- LIVE FEED -->
+			
 			<div th:if="${live}"
 				class="top-alert alert alert-primary alert-dismissible fade show"
 				role="alert">
+				<!-- LIVE FEED -->
 				<span th:text="${live}">error</span>
 				<button type="button" class="close" data-dismiss="alert"
 					aria-label="Close" style="outline: 0;">
 					<span aria-hidden="true">&times;</span>
 				</button>
 			</div>
-			<!-- ERROR -->
+			
 			<div th:if="${error}"
 				class="top-alert alert alert-danger alert-dismissible fade show"
 				role="alert">
+				<!-- ERROR -->
 				<span th:text="${error}">error</span>
 				<button type="button" class="close" data-dismiss="alert"
 					aria-label="Close" style="outline: 0;">
 					<span aria-hidden="true">&times;</span>
 				</button>
 			</div>
-			<!-- WARNING -->
+			
 			<div th:if="${warning}"
 				class="top-alert alert alert-warning alert-dismissible fade show"
 				role="alert">
+				<!-- WARNING -->
 				<span th:text="${warning}">error</span>
 				<button type="button" class="close" data-dismiss="alert"
 					aria-label="Close" style="outline: 0;">
 					<span aria-hidden="true">&times;</span>
 				</button>
 			</div>
-			<!-- MSG -->
+			
 			<div th:if="${msg}"
 				class="top-alert alert alert-success alert-dismissible fade show"
 				role="alert">
+				<!-- MSG -->
 				<span th:text="${msg}">ok message</span>
 				<button type="button" class="close" data-dismiss="alert"
 					aria-label="Close" style="outline: 0;">

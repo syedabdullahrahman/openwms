@@ -25,7 +25,7 @@ public class UserRepositoryImpl implements UserRepositoryCustom {
 
 	@Override
 	@SuppressWarnings("unchecked")
-	public List<User> findAllActiveUsers() {
+	public List<User> findActiveUsers() {
 		Query query = entityManager.createNativeQuery(
 		"SELECT " 
 		+ "usr.* " 
@@ -39,7 +39,23 @@ public class UserRepositoryImpl implements UserRepositoryCustom {
 	}
 
 	@Override
-	@Transactional
+	@SuppressWarnings("unchecked")
+	public List<User> findInactiveUsers() {
+		Query query = entityManager.createNativeQuery(
+		"SELECT " 
+		+ "usr.* " 
+		+ "FROM " 
+		+ "users as usr " 
+		+ "WHERE usr.active = ?", User.class);
+
+		query.setParameter(1, false);
+
+		return query.getResultList();
+	}
+
+
+	
+	@Override
 	public User getAuthenticatedUser() {
 		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
 		if (!(auth instanceof AnonymousAuthenticationToken)) {

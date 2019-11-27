@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
+	layout:decorate="~{layout/pc_general}">
+
+<head>
+<title th:text="#{site.title.users}"></title>
+</head>
+<body>
+	<div layout:fragment="script"></div>
+
+	<div layout:fragment="content">
+		<div class="container">
+			<!-- INTRO -->
+			<div class="row">
+				<div class="col subintro">
+					<h1>
+						<i class="fa fa-user-plus"></i><span th:text="|#{users.create.title}|"></span>						
+					</h1>
+					<p th:text="#{users.create.prologue}"></p>
+					<a th:href="|@{/manage/users}|">&laquo; <span
+						th:text="#{action.back}"></span></a>
+					<hr>
+				</div>
+			</div>
+
+			<!-- FORM -->
+			<div class="row">
+				
+				<!-- LEFT COLUMN -->
+				<div class="col-md-6 col-lg-4 order-md-1">
+					<h4 class="mb-3">
+						<i class="fa fa-pencil-alt mr-2"></i><span
+							th:text="#{general.form}"></span>
+					</h4>
+					
+					<form th:action="@{/manage/users/create}" method="post"
+						th:object="${formUserCreate}">
+						<div class="row">
+							<div class="col-md-12 mb-3">
+								<label for="username" th:text="#{users.username}"></label> <input
+									type="text" class="form-control" th:field="*{username}"
+									th:placeholder="#{users.username}">
+									<div th:errors="*{username}"
+									class="alert alert-danger mt-2 mb-0">error</div>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-md-12 mb-3">
+								<label for="name" th:text="#{users.name}"></label> <input
+									type="text" class="form-control" th:field="*{name}"
+									th:placeholder="#{users.name}">
+									<div th:errors="*{name}"
+									class="alert alert-danger mt-2 mb-0">error</div>									
+							</div>
+						</div>
+						<hr class="mb-4">
+						<button class="btn btn-primary btn-lg btn-block" type="submit">
+							<i class="fa fa-save"></i> <span th:text="#{action.save}"></span>
+						</button>
+					</form>
+
+
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
