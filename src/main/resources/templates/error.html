@@ -16,8 +16,8 @@
 				<div class="notfound-404">
 					<h1 th:text="|#${status}!|" class="text-primary"></h1>
 				</div>
-				<h2><span th:text="|${error}|"></span></h2>
-				<p th:text="|${path} - ${message}|"></p>
+				<h2><span th:text="| ${message}|"></span></h2>
+				<p th:text="|${error} [${path}]|"></p>
 				<p class="text-secondary" th:text="#{error.explanation}"></p>
 				<a class="btn btn-primary btn-lg" th:href="@{/}"><i class="fa fa-home margin-right-10"></i>home</a>
 				

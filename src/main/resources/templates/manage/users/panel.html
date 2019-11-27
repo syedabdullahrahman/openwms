@@ -50,7 +50,7 @@
 			<div class="row">
 				<div class="col-12">
 					<a class="btn btn-block btn-outline-primary btn-md"
-						th:href="@{/manage/users/create}"> <i class="fa fa-plus"></i>
+						th:href="@{/manage/users/create}"> <i class="fa fa-user-plus"></i>
 						<span th:text="#{users.create}"></span>
 					</a>
 				</div>
@@ -59,7 +59,7 @@
 			<!-- TABLE -->
 			<div class="row margin-top-20">
 				<div class="col-12">
-					<table id="users" class="table table-striped table-hover nowrap"
+					<table id="users" class="table table-striped table-hover table-compact nowrap"
 						style="width: 100%">
 						<thead>
 							<tr>
@@ -74,13 +74,13 @@
 						<tbody>
 							<tr th:each="user: ${users}">
 								<td><span th:text="|#${user.id}|"></span></td>
-								<td><a class="btn-block" data-toggle="tooltip" data-placement="top"
+								<td><a data-toggle="tooltip" data-placement="top"
 									th:title="#{action.edit}"
 									th:href="|@{/manage/users/edit/}${user.id}|"><span
 										th:text="${user.username}"></span></a></td>
 								<td><span th:text="${user.name}"></span></td>
 								<td><span th:text="${user.active}"></span></td>
-								<td><span class="btn btn-sm margin-right-5 "
+								<td><span class="btn btn-sm mr-1 "
 									th:classappend="${role.name}=='ROLE_ADMIN' or ${role.name}=='ROLE_MANAGER' ? btn-outline-danger : btn-outline-dark"
 									th:each="role: ${user.roles}"
 									th:text="|${#strings.substringAfter(role.name,'ROLE_')}|">

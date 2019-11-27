@@ -30,65 +30,98 @@
 				<!-- RIGHT COLUMN -->
 				<div class="col-md-4 order-md-2 mb-4">
 					<h4 class="d-flex align-items-center mb-3">
-						<i class="fa fa-pencil-alt mr-2"></i><span>Uprawnienia</span>
+						<i class="fa fa-shield-alt mr-2"></i><span
+							th:text="#{users.roles}"></span>
 					</h4>
 
-					<label for="country">Country</label> <select
-						class="custom-select d-block w-100" id="country" required="">
-						<option value="0" selected="selected">Choose...</option>
-						<option>United States</option>
-					</select>
-					<ul class="list-group mt-3">
-						<li
-							class="list-group-item d-flex justify-content-between lh-condensed">
-							<div>
-								<h6 class="my-0">Product name</h6>
-								<small class="text-muted">Brief description</small>
-							</div> <span class="text-muted">$12</span>
-						</li>
-					</ul>
+					<label class="mb-2" th:text="#{users.role.manage}"></label>
+					<!-- remove permissions -->
+					<button class="btn btn-outline-primary btn btn-block mb-3"
+						type="button" data-toggle="collapse" data-target="#currtab"
+						aria-expanded="false" aria-controls="currtab"
+						>
+						<i class="fa fa-user-shield mr-1"></i><span th:text="#{users.role.current}"></span>
+						</button>
+					<div class="collapse mb-3" id="currtab">
+						<div class="card card-body">
+							<a th:href="|@{/manage/users/roles/remove}/${formUserEdit.id}/${role.id}|" class="btn btn-sm my-1 text-left"
+								th:each="role: ${userRoles}"
+								th:classappend="${role.name}=='ROLE_ADMIN' or ${role.name}=='ROLE_MANAGER' ? btn-warning : btn-info"
+								th:onclick="|return confirm('#{general.areyousure.remove}')|">
+								<i class="fa fa-times mr-2"></i><span
+								th:text="|${#strings.substringAfter(role.name,'ROLE_')}|"></span>
+							</a>
+						</div>
+					</div>
+					<!-- add permissions -->
+					<button class="btn btn-outline-info btn btn-block mb-2"
+						type="button" data-toggle="collapse" data-target="#addtab"
+						aria-expanded="false" aria-controls="addtab"
+						>
+						<i class="fa fa-file-signature mr-1"></i><span th:text="#{users.role.add}"></span>
+					</button>
+					<div class="collapse mb-2" id="addtab">
+						<div class="card card-body">
+							<a th:href="|@{/manage/users/roles/add}/${formUserEdit.id}/${role.id}|" class="btn btn-sm my-1 text-left"
+								th:each="role: ${allRoles}"
+								th:classappend="${role.name}=='ROLE_ADMIN' or ${role.name}=='ROLE_MANAGER' ? btn-warning : btn-info"
+								th:onclick="|return confirm('#{general.areyousure.add}')|">
+								<i class="fa fa-plus mr-2"></i><span
+								th:text="|${#strings.substringAfter(role.name,'ROLE_')}|"></span>
+							</a>
+						</div>
+					</div>
+					<!-- password -->
+					<label for="password" th:text="#{users.password}"></label> <a
+									class="btn btn-block btn-outline-dark btn-md"
+									th:href="@{/manage/users/password/ID}"> <i
+									class="fa fa-key mr-1"></i> <span th:text="#{users.password.change}"></span>
+								</a>
 				</div>
 				<!-- LEFT COLUMN -->
 				<div class="col-md-8 order-md-1">
-					<h4 class="mb-3"><i class="fa fa-pencil-alt mr-2"></i><span th:text="#{general.form}"></span></h4>
-					<form>
+					<h4 class="mb-3">
+						<i class="fa fa-pencil-alt mr-2"></i><span
+							th:text="#{general.form}"></span>
+					</h4>
+					<form th:action="@{/manage/users/edit}" method="post"
+						th:object="${formUserEdit}">
 						<div class="row">
 							<div class="col-md-6 mb-3">
 								<label for="username" th:text="#{users.username}"></label> <input
-									type="text" class="form-control" id="username" name="username"
+									type="text" class="form-control" th:field="*{username}"
 									th:placeholder=#{users.username}>
+									<div th:errors="*{username}"
+								class="alert alert-danger margin-top-5">error</div>
 							</div>
+							
 							<div class="col-md-6 mb-3">
 								<label for="name" th:text="#{users.name}"></label> <input
-									type="text" class="form-control" id="name" name="name"
+									type="text" class="form-control" th:field="*{name}"
 									th:placeholder="#{users.name}">
+									<div th:errors="*{name}"
+								class="alert alert-danger margin-top-5">error</div>
 							</div>
 						</div>
 
 						<div class="row">
 							<div class="col-md-6 mb-3">
 								<label for="id" th:text="|#id|"></label> <input type="text"
-									class="form-control" id="id" name="id" th:placeholder="|#id|"
+									class="form-control" th:field="*{id}" th:placeholder="|#id|"
 									style="background-color: white;" readonly>
 							</div>
-							<div class="col-md-6 mb-3">
-								<label for="password" th:text="#{users.password}"></label> <a
-									class="btn btn-block btn-outline-dark btn-md"
-									th:href="@{/manage/users/password/ID}"> <i class="fa fa-key"></i>
-									<span th:text="#{users.password.change}"></span>
-								</a>
-							</div>
+						</div>
+						<div class="custom-control custom-checkbox mt-1">
+							<input type="checkbox" class="custom-control-input"
+								th:field="*{active}" id="_active"> <label
+								class="custom-control-label" for="_active"
+								th:text="#{users.active}"></label>
 						</div>
 					
-						<div class="custom-control custom-checkbox mt-2">
-							<input type="checkbox" class="custom-control-input" id="active">
-							<label class="custom-control-label" for="active">Active</label>
-						</div>
 						<hr class="mb-4">
 
 						<button class="btn btn-primary btn-lg btn-block" type="submit">
-						<i class="fa fa-save"></i>
-						<span th:text="#{action.save}"></span>
+							<i class="fa fa-save"></i> <span th:text="#{action.save}"></span>
 						</button>
 					</form>
 
@@ -96,5 +129,6 @@
 				</div>
 			</div>
 		</div>
+	</div>
 </body>
 </html>
