@@ -54,19 +54,19 @@
 			</div>
 			<div class="row">
 				<div class="col">
-					<a class="btn btn-block btn-outline-success btn-md mt-2"
+					<a class="btn btn-block btn-outline-secondary btn-md mt-2"
 						th:href="@{/manage/users}"> <i class="fa fa-user-check"></i>
 						<span th:text="#{users.show.active}"></span>
 					</a>
 				</div>
 				<div class="col">
-					<a class="btn btn-block btn-outline-danger btn-md mt-2"
+					<a class="btn btn-block btn-outline-secondary btn-md mt-2"
 						th:href="@{/manage/users/inactive}"> <i class="fa fa-user-times"></i>
 						<span th:text="#{users.show.inactive}"></span>
 					</a>
 				</div>
 				<div class="col">
-					<a class="btn btn-block btn-outline-info btn-md mt-2"
+					<a class="btn btn-block btn-outline-secondary btn-md mt-2"
 						th:href="@{/manage/users/all}"> <i class="fa fa-users"></i>
 						<span th:text="#{users.show.all}"></span>
 					</a>
@@ -98,7 +98,7 @@
 								<td><span th:text="${user.name}"></span></td>
 								<td><span th:text="${user.active}"></span></td>
 								<td><span class="btn btn-sm mr-2 "
-									th:classappend="${role.name}=='ROLE_ADMIN' or ${role.name}=='ROLE_MANAGER' ? btn-outline-danger : btn-outline-dark"
+									th:classappend="${role.name}=='ROLE_ADMIN' or ${role.name}=='ROLE_MANAGER' ? btn-outline-primary : btn-outline-secondary"
 									th:each="role: ${user.roles}"
 									th:text="|${#strings.substringAfter(role.name,'ROLE_')}|">
 								</span></td>

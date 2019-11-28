@@ -35,38 +35,40 @@
 					</h4>
 
 					<label class="mb-2" th:text="#{users.role.manage}"></label>
-					<!-- remove permissions -->
-					<button class="btn btn-outline-primary btn btn-block mb-3"
+					<!-- current permissions -->
+					<button class="btn btn-primary btn btn-block mb-3"
 						type="button" data-toggle="collapse" data-target="#currtab"
 						aria-expanded="false" aria-controls="currtab">
-						<i class="fa fa-user-shield mr-1"></i><span
+						<i class="fa fa-user-shield mr-2"></i><span
 							th:text="#{users.role.current}"></span>
+							<i class="fa fa-angle-double-down ml-1"></i>
 					</button>
 					<div class="collapse mb-3" id="currtab">
 						<div class="card card-body">
 							<a
 								th:href="|@{/manage/users/roles/remove}/${formUserEdit.id}/${role.id}|"
 								class="btn btn-sm my-1 text-left" th:each="role: ${userRoles}"
-								th:classappend="${role.name}=='ROLE_ADMIN' or ${role.name}=='ROLE_MANAGER' ? btn-warning : btn-info"
+								th:classappend="${role.name}=='ROLE_ADMIN' or ${role.name}=='ROLE_MANAGER' ? btn-outline-primary : btn-outline-secondary"
 								th:onclick="|return confirm('#{general.areyousure.remove}')|">
 								<i class="fa fa-times mr-2"></i><span
 								th:text="|${#strings.substringAfter(role.name,'ROLE_')}|"></span>
 							</a>
 						</div>
 					</div>
-					<!-- add permissions -->
-					<button class="btn btn-outline-info btn btn-block mb-2"
+					<!-- give permissions -->
+					<button class="btn btn-secondary btn btn-block mb-2"
 						type="button" data-toggle="collapse" data-target="#addtab"
 						aria-expanded="false" aria-controls="addtab">
-						<i class="fa fa-file-signature mr-1"></i><span
+						<i class="fa fa-user-plus mr-2"></i><span
 							th:text="#{users.role.add}"></span>
+							<i class="fa fa-angle-double-down ml-1"></i>
 					</button>
 					<div class="collapse mb-2" id="addtab">
 						<div class="card card-body">
 							<a
 								th:href="|@{/manage/users/roles/add}/${formUserEdit.id}/${role.id}|"
 								class="btn btn-sm my-1 text-left" th:each="role: ${allRoles}"
-								th:classappend="${role.name}=='ROLE_ADMIN' or ${role.name}=='ROLE_MANAGER' ? btn-warning : btn-info"
+								th:classappend="${role.name}=='ROLE_ADMIN' or ${role.name}=='ROLE_MANAGER' ? btn-outline-primary : btn-outline-secondary"
 								th:onclick="|return confirm('#{general.areyousure.add}')|">
 								<i class="fa fa-plus mr-2"></i><span
 								th:text="|${#strings.substringAfter(role.name,'ROLE_')}|"></span>
@@ -75,7 +77,7 @@
 					</div>
 					<!-- password -->
 					<label for="password" th:text="#{users.password}"></label> <a
-						class="btn btn-block btn-outline-dark btn-md"
+						class="btn btn-block btn-warning btn-md"
 						th:href="|@{/manage/users/password/}${formUserEdit.id}|"> <i
 						class="fa fa-key mr-1"></i> <span
 						th:text="#{users.password.change}"></span>
