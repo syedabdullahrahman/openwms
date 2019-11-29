@@ -40,16 +40,19 @@ public class UsersController {
 	@GetMapping("/manage/users")
 	public String viewActiveUsersPage(Model model) {
 		model.addAttribute("users", (userRepository.findActiveUsers()));
+		model.addAttribute("active", true);
 		return "manage/users/panel";
 	}
 	@GetMapping("/manage/users/inactive")
 	public String viewInactiveUsersPage(Model model) {
 		model.addAttribute("users", (userRepository.findInactiveUsers()));
+		model.addAttribute("inactive", true);
 		return "manage/users/panel";
 	}
 	@GetMapping("/manage/users/all")
 	public String viewManageUsersPage(Model model) {
 		model.addAttribute("users", (userRepository.findAll()));
+		model.addAttribute("all", true);
 		return "manage/users/panel";
 	}
 

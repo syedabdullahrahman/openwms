@@ -38,13 +38,14 @@
 				<input type="password" id="password" name="password" class="form-control"
 					th:placeholder="#{general.password}">
 
-				<div class="checkbox mb-3">
-					<label> 
-					<input type="checkbox" id="remember-me" name ="remember-me">
-						<span th:text="#{login.remember-me}"></span>
-					</label>
-				</div>
 
+						<div class="custom-control custom-checkbox mt-1 mb-3">
+							<input type="checkbox" class="custom-control-input"
+								id="remember-me" name ="remember-me"> 
+								<label
+								class="custom-control-label" for="remember-me"
+								th:text="#{login.remember-me}"></label>
+						</div>
 				<button class="btn btn-lg btn-primary btn-block" type="submit">
 					<span th:text="#{login.sign-in}"></span>
 				</button>

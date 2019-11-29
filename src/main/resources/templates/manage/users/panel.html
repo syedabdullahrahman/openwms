@@ -54,19 +54,22 @@
 			</div>
 			<div class="row">
 				<div class="col">
-					<a class="btn btn-block btn-outline-secondary btn-md mt-2"
+					<a class="btn btn-block btn-md mt-2"
+						th:classappend="${active} ? btn-warning : btn-outline-secondary"
 						th:href="@{/manage/users}"> <i class="fa fa-user-check"></i>
 						<span th:text="#{users.show.active}"></span>
 					</a>
 				</div>
 				<div class="col">
-					<a class="btn btn-block btn-outline-secondary btn-md mt-2"
+					<a class="btn btn-block btn-md mt-2"
+						th:classappend="${inactive} ? btn-warning : btn-outline-secondary"
 						th:href="@{/manage/users/inactive}"> <i class="fa fa-user-times"></i>
 						<span th:text="#{users.show.inactive}"></span>
 					</a>
 				</div>
 				<div class="col">
-					<a class="btn btn-block btn-outline-secondary btn-md mt-2"
+					<a class="btn btn-block btn-md mt-2"
+						th:classappend="${all} ? btn-warning : btn-outline-secondary"
 						th:href="@{/manage/users/all}"> <i class="fa fa-users"></i>
 						<span th:text="#{users.show.all}"></span>
 					</a>
