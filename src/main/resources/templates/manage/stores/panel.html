@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
+	layout:decorate="~{layout/pc_general}">
+
+<head>
+<title th:text="#{site.title.stores}"></title>
+</head>
+<body>
+	<div layout:fragment="script">
+
+		<script th:if="__${#locale}__ == 'pl' or __${#locale}__ == 'pl_PL'">
+			var langFile = "polish";
+		</script>
+		<script th:if="__${#locale}__ == 'it'">
+			var langFile = "italian";
+		</script>
+		<script th:if="__${#locale}__ == 'en'">
+			var langFile = "english";
+		</script>
+		<script>
+			$('#users').DataTable({
+				language : {
+					url : getUrl() + langFile + ".json",
+				},
+				"order" : [ 1, 'asc' ]
+			});
+		</script>
+	</div>
+
+	<div layout:fragment="content">
+		<div class="container">
+			<!-- INTRO -->
+			<div class="row">
+				<div class="col subintro">
+					<h1>
+						<i class="fa fa-warehouse"></i><span
+							th:text="#{manage.feature.stores.title}"></span>
+					</h1>
+					<p th:text="#{stores.panel.prologue}"></p>
+					<a th:href="@{/manage}">&laquo; <span th:text="#{action.back}"></span></a>
+				</div>
+			</div>
+			<hr class="mb-3">
+			<!-- BUTTON -->
+			<div class="row">
+				<div class="col-12">
+					<a class="btn btn-block btn-primary btn-md"
+						th:href="@{/manage/stores/create}"> <i class="fa fa-plus"></i>
+						<span th:text="#{stores.create}"></span>
+					</a>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col">
+					<a class="btn btn-block btn-md mt-2"
+						th:classappend="${active} ? btn-warning : btn-outline-secondary"
+						th:href="@{/manage/stores}"> <i class="fa fa-check"></i>
+						<span th:text="#{stores.show.active}"></span>
+					</a>
+				</div>
+				<div class="col">
+					<a class="btn btn-block btn-md mt-2"
+						th:classappend="${inactive} ? btn-warning : btn-outline-secondary"
+						th:href="@{/manage/stores/inactive}"> <i class="fa fa-times"></i>
+						<span th:text="#{stores.show.inactive}"></span>
+					</a>
+				</div>
+				<div class="col">
+					<a class="btn btn-block btn-md mt-2"
+						th:classappend="${all} ? btn-warning : btn-outline-secondary"
+						th:href="@{/manage/stores/all}"> <i class="fa fa-list"></i>
+						<span th:text="#{stores.show.all}"></span>
+					</a>
+				</div>
+			</div>
+			<hr class="mb-4">
+			<!-- TABLE -->
+			<div class="row margin-top-20">
+				<div class="col-12">
+					<table id="users"
+						class="table table-striped table-hover table-compact nowrap"
+						style="width: 100%">
+						<thead>
+							<tr>
+								<th><span th:text="|#id|"></span></th>
+								<th><span th:text="|#{users.username}|"></span></th>
+								<th><span th:text="|#{users.name}|"></span></th>
+								<th><span th:text="|#{users.active}|"></span></th>
+								<th><span th:text="|#{users.roles}|"></span></th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr th:each="user: ${users}">
+								<td><span th:text="|#${user.id}|"></span></td>
+								<td><a data-toggle="tooltip" data-placement="top"
+									th:title="#{action.edit}"
+									th:href="|@{/manage/users/edit/}${user.id}|"><span
+										th:text="${user.username}"></span></a></td>
+								<td><span th:text="${user.name}"></span></td>
+								<td><span th:text="${user.active}"></span></td>
+								<td><span class="btn btn-sm mr-2 "
+									th:classappend="${role.name}=='ROLE_ADMIN' or ${role.name}=='ROLE_MANAGER' ? btn-outline-primary : btn-outline-secondary"
+									th:each="role: ${user.roles}"
+									th:text="|${#strings.substringAfter(role.name,'ROLE_')}|">
+								</span></td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
